@@ -26,7 +26,7 @@
   <div class="wrapper ">
 
 
-    <div class="sidebar" >
+    <div class="sidebar">
       <div class="logo">
         
         <a href="" class="text-center simple-text logo-normal">
@@ -115,7 +115,14 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Log Out</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                      @csrf
+                                  </form>
                   
                 </div>
               </li>
@@ -123,7 +130,7 @@
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
-                    <span class="d-lg-none d-md-block">Account</span>
+                    <span class="d-lg-none d-md-block"> {{ Auth::user()->name }}</span>
                   </p>
                 </a>
               </li>
@@ -134,7 +141,7 @@
       <!-- End Navbar -->
 
 
-      <div class="panel-header panel-header-sm">
+      <div class="panel-header panel-header-sm" style="background: #662d91">
       </div>
 
 

@@ -14,8 +14,12 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->is_admin == 1){
+            return $next($request);
+        }
+   
+        return redirect('dashboard')->with('error',"You don't have admin access.");
     }
 }
