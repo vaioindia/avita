@@ -60,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ url('store/index') }}">
               <i class="fas fa-store"></i>
               <p>Store</p>
             </a>
