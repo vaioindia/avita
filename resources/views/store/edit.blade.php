@@ -1,13 +1,19 @@
 @extends('layouts.master')
 
-@section('contant')
+@section('title')
+Store
+@endsection
+
+@section('content')
+<br>
+<br>
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Edit Product</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+            <a class="btn btn-default" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
         </div>
     </div>
 </div>
@@ -23,52 +29,52 @@
     </div>
 @endif
 
-<form action="{{ route('store.update',$store->id) }}" method="POST">
+<form action="{{ route('store.update', $store->id) }}" method="post">
     @csrf
     @method('PUT')
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Latitude:</strong>
-                <input type="number" name="{{ $store->latitude }}" class="form-control" placeholder="Name">
+                <strong>Latitude</strong>
+                <input type="float" name="latitude" value="{{ $store->latitude}}" class="form-control" placeholder="Latitude">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Longitude:</strong>
-                <input type="number" name="{{ $store->longitude }}" class="form-control" placeholder="Name">
+                <strong>Longitude</strong>
+                <input type="float" value="{{ $store->longitude }}" name="longitude" class="form-control" placeholder="Longitude">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Partner Name</strong>
-                <input type="text" name="{{ $store->name }}" class="form-control" placeholder="Name">
+                <input type="text" value="{{ $store->name }}" name="name" class="form-control" placeholder="Partner Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Email:</strong>
-                <input type="text" name="{{ $store->email }}" class="form-control" placeholder="Name">
+                <strong>Email</strong>
+                <input type="text" value="{{ $store->email }}" class="form-control" name="email" placeholder="Email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Contact No</strong>
-                <input type="number" name="{{ $store->phone }}" class="form-control" placeholder="Name">
+                <input type="number" value="{{ $store->phone }}" class="form-control" name="phone" placeholder="Contact No">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Address:</strong>
-                <textarea class="form-control" style="height:50px" name="{{ $store->address }}"
-                    placeholder="description"></textarea>
+                <strong>Address</strong>
+                <textarea class="form-control" style="height:50px" name="address"
+                    placeholder="Address">{{ $store->address }}"</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Opening hour:</strong>
-                <input type="number" name="{{ $store->opening_hour }}" class="form-control" placeholder="Put the price">
+                <strong>Opening hour</strong>
+                <input type="time" value="{{ $store->opening_hour }}" name="opening_hour" class="form-control" placeholder="Opening hour">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

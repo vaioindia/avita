@@ -1,18 +1,17 @@
 @extends('layouts.master')
 
 @section('title')
-Store
+Banner
 @endsection
 
 @section('content')
-<br>
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2></h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-default" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle"></i>
+            <a class="btn btn-success" href="{{ route('banner.index') }}" title="Create a product"> <i class="fas fa-plus-circle"></i>
                 </a>
         </div>
     </div>
@@ -45,14 +44,14 @@ Store
             <td>{{ $store->address }}</td>
             <td>{{ $store->opening_hour }}</td>
             <td>
-            <form action="{{ route('store.destroy',$store->id) }}" method="POST">
+            <form action="{{ route('banner.destroy',$store->id) }}" method="POST">
                     {{-- <!-- <a href="{{ route('store.index',$stores->id) }}" title="show">
                         <i class="fas fa-eye text-success  fa-lg"></i>
                     </a> --> --}}
 
-                    <a href="{{ route('store.edit',$store->id) }}">
+                    {{-- <a href="{{ route('store.edit',$store->id) }}">
                         <i class="fas fa-edit  fa-lg"></i>
-                    </a>
+                    </a> --}}
 
                     <!-- @csrf
                     @method('DELETE') -->
@@ -69,6 +68,7 @@ Store
 </table>
 
 {!! $stores->links() !!}
+
 @endsection
 
 

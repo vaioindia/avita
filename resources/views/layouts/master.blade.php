@@ -4,8 +4,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png ') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     @yield('title')
@@ -16,10 +16,12 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <link href="{{ asset('assets/css/bootstrap.min.css ') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/now-ui-dashboard.css?v=1.5.0 ') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="{{ asset('assets/demo/demo.css ') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
+  
 </head>
 
 <body class="">
@@ -27,16 +29,14 @@
 
 
     <div class="sidebar">
-      <div class="logo">
+      <div class="logo text-center" style="background: #c19cdd" >
         
-        <a href="" class="text-center simple-text logo-normal">
-          AVITA
-        </a>
+        <img class="navbar-brand" src="{{ asset('images/logo.png') }}">
       </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <div class="sidebar-wrapper" id="sidebar-wrapper" style="background: #662d91">
         <ul class="nav">
           <li>
-            <a href="">
+            <a href="{{ url('/admin/dashboard') }}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -45,10 +45,11 @@
             <a href="#">
               <i class="fa fa-laptop"></i>
               <p>Product</p>
+              
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{url('banners')}}">
               <i class="fa fa-picture-o"></i>
               <p>Banner</p>
             </a>
@@ -60,7 +61,7 @@
             </a>
           </li>
           <li>
-            <a href="{{ url('store/index') }}">
+            <a href="{{ url('store') }}">
               <i class="fas fa-store"></i>
               <p>Store</p>
             </a>
@@ -111,7 +112,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons location_world"></i>
                   <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
+                    <span class="d-lg-none d-md-block">asd</span>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -127,11 +128,11 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                <a class="nav-link" href="">
                   <i class="now-ui-icons users_single-02"></i>
-                  <p>
+                  {{-- <p>
                     <span class="d-lg-none d-md-block"> {{ Auth::user()->name }}</span>
-                  </p>
+                  </p> --}}
                 </a>
               </li>
             </ul>
@@ -187,19 +188,20 @@
 
 
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="{{ asset('assets/js/core/jquery.min.js ') }}"></script>
+  <script src="{{ asset('assets/js/core/popper.min.js ') }}"></script>
+  <script src="{{ asset('assets/js/core/bootstrap.min.js ') }}"></script>
+  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js ') }}"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
   <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+  <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.5.0 ') }}" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{{ asset('assets/demo/demo.js ') }}"></script>
+  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
 
   @yield('scripts')

@@ -1,143 +1,94 @@
 <?php
-
+  
 namespace App\Http\Controllers;
-use App\Banner;
+  
+use App\Models\Banner;
 use Illuminate\Http\Request;
-
+  
 class BannerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
-        $data = Banner::latest()->paginate(5);
-        return view('index', compact('data'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+        $banners = Banner::latest()->paginate(5);
+  
+        return view('banners.index', compact('banners'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
+    
     public function create()
     {
-        $banner = Banner::all();
-        return view('banner.create', compact('banner'));
+        return view('banners.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
         $request->validate([
-            'timeline'    =>  'required',
-            'reference'     =>  'mimes:jpg,jpeg,png',
-            'start_tiem'         =>  'required'
-            'end_time'         =>  'required'
-            
-
+            'title' => 'required',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4',
         ]);
 
-        $reference = $request->file('reference');
 
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $new_name);
 
-        $form_data = array(
-            'first_name'       =>   $request->first_name,
-            'last_name'        =>   $request->last_name,
-            'image'            =>   $new_name
-        );
+        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $input['image']);
 
-        Banner::create($form_data);
+        $input['title'] = $request->title;
+        $input['url'] = $request->url;
+        $input['date'] = $request->date;
+        $input['seq'] = $request->seq;
 
-        return redirect('banner')->with('success', 'Data Added successfully.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $data = Banner::findOrFail($id);
-        return view('view', compact('data'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $data = Banner::findOrFail($id);
-        return view('edit', compact('data'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $image_name = $request->hidden_image;
-        $image = $request->file('image');
-        if($image != '')
-        {
-            $request->validate([
-                'image'    =>  'image|max:2048',
-                'videos'     =>  'required',
-                ''         =>  'image|max:2048'
-            ]);
-
-            $image_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
-        }
-        else
-        {
-            $request->validate([
-                'first_name'    =>  'required',
-                'last_name'     =>  'required'
-            ]);
-        }
-
-        $form_data = array(
-            'first_name'       =>   $request->first_name,
-            'last_name'        =>   $request->last_name,
-            'image'            =>   $image
-        );
+        Banner::create($input);
   
-        Banner::whereId($id)->update($form_data);
-
-        return redirect('banner')->with('success', 'Data is successfully updated');
+        // Banner::create($request->all());
+   
+        return redirect()->route('banners.index')
+                        ->with('success','Banner created successfully.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+   
+   
+    public function show(Banner $banner)
     {
-        $data = Banner::findOrFail($id);
-        $data->delete();
+        return view('banners.show',compact('banner'));
+    }
+   
+    
+    public function edit(Banner $banner)
+    {
+        return view('banners.edit',compact('banner'));
+    }
+  
+    
+    public function update(Request $request, Banner $banner)
+    {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4',
+        ]);
+        
+        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $input['image']);
 
-        return redirect('banner')->with('success', 'Data is successfully deleted');
+        $input['title'] = $request->title;
+        $input['url'] = $request->url;
+        $input['date'] = $request->date;
+        $input['seq'] = $request->seq;
+
+
+
+        $banner->update($request->all());
+  
+        return redirect()->route('banners.index')
+                        ->with('success',' updated successfully');
+    }
+  
+    
+    public function destroy(Banner $banner)
+    {
+        $banner->delete();
+  
+        return redirect()->route('banners.index')
+                        ->with('success',' deleted successfully');
     }
 }

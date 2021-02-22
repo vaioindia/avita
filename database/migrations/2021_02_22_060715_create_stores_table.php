@@ -6,25 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStoresTable extends Migration
 {
-    
+   
     public function up()
     {
         Schema::create('stores', function (Blueprint $table) {
-            $table->increments('id');
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->id();
+            $table->decimal('latitude');
+            $table->decimal('longitude');
             $table->string('name');
             $table->string('email');
             $table->string('address',1000);
             $table->string('opening_hour');
-            $table->integer('phone');
-            $table->timestamp();
+            $table->bigInteger('phone');
+            $table->timestamps();
         });
     }
 
-    
+   
     public function down()
     {
-        Schema::dropIfExists('store');
+        Schema::dropIfExists('stores');
     }
 }

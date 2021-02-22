@@ -61,3 +61,13 @@
   max-width: 530px;
   margin: 0 auto;
 }
+
+/* 
+.content {
+  -premailer-cellpadding: 0;
+  -premailer-cellspacing: 0;
+  -premailer-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+} */

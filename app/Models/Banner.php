@@ -1,12 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Banner extends Model
 {
-    protected $fillable = [
-     'reference', 'timeline', 'start_time','end_time'
-    ];
+    protected $table = 'banner';
+
+
+    protected $fillable = ['title','image','id','date','seq','enabled','url'];
 }

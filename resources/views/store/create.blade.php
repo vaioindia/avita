@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-
+Store
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
         </div>
         <div class="pull-right">
             <br>
-            <a class="btn btn-primary" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
+            <a class="btn btn-default" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
         </div>
     </div>
 </div>
@@ -37,45 +37,45 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Latitude:</strong>
-                <input type="number" name="latitude" class="form-control" placeholder="Name">
+                <strong>Latitude</strong>
+                <input type="float" name="latitude" class="form-control" placeholder="Latitude">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Longitude:</strong>
-                <input type="number" name="longitude" class="form-control" placeholder="Name">
+                <strong>Longitude</strong>
+                <input type="float" name="longitude" class="form-control" placeholder="Longitude">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Partner Name</strong>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <input type="text" name="name" class="form-control" placeholder="Partner Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="Name">
+                <strong>Email</strong>
+                <input type="text" name="email" class="form-control" placeholder="Email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Contact No</strong>
-                <input type="number" name="phone" class="form-control" placeholder="Name">
+                <input type="text" name="phone" class="form-control" placeholder="Email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Address:</strong>
+                <strong>Address</strong>
                 <textarea class="form-control" style="height:50px" name="address"
-                    placeholder="description"></textarea>
+                    placeholder="Address"></textarea> 
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Opening hour:</strong>
-                <input type="number" name="opening_hour" class="form-control" placeholder="Put the price">
+                <strong>Opening hour</strong>
+                <input type="time" name="opening_hour" class="form-control" placeholder="Opening hour">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

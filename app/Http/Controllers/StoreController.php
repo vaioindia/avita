@@ -10,12 +10,14 @@ class StoreController extends Controller
     
     public function index()
     {
-        {
-            $store = Store::latest()->paginate(5);
-    
-            return view('store.index', compact('store'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+        {   
+            $stores = Store::latest()->paginate(5);
+  
+        return view('store.index',compact('stores'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
         }
+
+        
     }
 
     
@@ -28,7 +30,8 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         {
-            $request->validate([
+             
+        $request->validate([
                 'latitude' => 'required',
                 'longitude' => 'required',
                 'name' => 'required',
@@ -38,23 +41,27 @@ class StoreController extends Controller
                 'phone' => 'required'
 
             ]);
-    
-            Store::create($request->all());
-    
-            return redirect()->route('store.index')
-                ->with('success', 'store created successfully.');
+  
+        Store::create($request->all());
+   
+        return redirect()->route('store.index')
+                        ->with('success','Store created successfully.');
         }
+        
+
     }
 
     
     public function show(Store $store)
     {
-        return view('store.show', compact('store'));
+        //$stores = Store::find($id);
+        return view('store.show', compact('stores'));
     }
 
     
     public function edit(Store $store)
     {
+        // $stores = Store::find($id);
         return view('store.edit', compact('store'));
     }
 
@@ -71,17 +78,26 @@ class StoreController extends Controller
 
         ]);
         $store->update($request->all());
-
+  
         return redirect()->route('store.index')
-            ->with('success', 'updated successfully');
+                        ->with('success','Store updated successfully');
+
+        
     }
 
     
     public function destroy(Store $store)
     {
-        $store->delete();
+        //$id = $request->input('id');
 
+        // $stores = Store::find($id);
+        // $stores->delete();
+
+
+
+            $store->delete();
+  
         return redirect()->route('store.index')
-            ->with('success', 'deleted successfully');
+                        ->with('success','Store deleted successfully');
     }
 }
