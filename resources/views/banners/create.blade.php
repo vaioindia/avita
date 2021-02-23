@@ -33,43 +33,45 @@ Banner
 <form action="{{ route('banners.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
-     <div class="row">
-        {{-- <div class="col-md-5">
-            <strong>S.No</strong>
-            <input type="text" name="id" class="form-control" placeholder="S.No">
-        </div> --}}
-        <div class="col-md-5">
-            <strong>Title</strong>
-            <input type="text" name="title" class="form-control" placeholder="Title">
+            <div class="row">
+            <div class=" container-fluid">
+                {{-- <div class="col-md-5">
+                    <strong>S.No</strong>
+                    <input type="text" name="id" class="form-control" placeholder="S.No">
+                </div> --}}
+                <div class="col-md-12">
+                    <strong>Title</strong>
+                    <input type="text" name="title" class="form-control" placeholder="Title">
+                </div>
+                <div class="col-md-12">
+                    <strong>URL</strong>
+                    <input type="text" name="url" class="form-control" placeholder="URL">
+                </div>
+                <div class="col-md-12">
+                    <strong>Date</strong>
+                    <input type="date" name="date" class="form-control" placeholder="Title">
+                </div>
+                
+                <div class="col-md-12">
+                    <strong>Sequance</strong>
+                    <input type="text" name="seq" class="form-control" placeholder="Sequance">
+                </div>
+                {{-- <div class="custom-control custom-switch col-md-5">
+                    <strong>Enable</strong>
+                    <br>
+                    <input type="checkbox" class="custom-control-input" id="switch1" name="enabled">
+                    <label class="custom-control-label" for="switch1"></label>
+                </div> --}}
+                <div class="col-md-12">
+                    <strong>Image</strong>
+                    <input type="file" name="image" class="form-control" placeholder="">
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <br>
+                    <button type="submit" class="btn  btn-default">Submit</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5">
-            <strong>URL</strong>
-            <input type="text" name="url" class="form-control" placeholder="URL">
-        </div>
-        <div class="col-md-5">
-            <strong>Date</strong>
-            <input type="date" name="date" class="form-control" placeholder="Title">
-        </div>
-        
-        <div class="col-md-5">
-            <strong>Sequance</strong>
-            <input type="text" name="seq" class="form-control" placeholder="Sequance">
-        </div>
-        {{-- <div class="custom-control custom-switch col-md-5">
-            <strong>Enable</strong>
-            <br>
-            <input type="checkbox" class="custom-control-input" id="switch1" name="enabled">
-            <label class="custom-control-label" for="switch1"></label>
-        </div> --}}
-        <div class="col-md-5">
-            <strong>Image</strong>
-            <input type="file" name="image" class="form-control">
-        </div>
-        <div class="col-md-2">
-            <br>
-            <button type="submit" class="btn  btn-default">Upload</button>
-        </div>
-    </div>
-   
 </form>
 @endsection

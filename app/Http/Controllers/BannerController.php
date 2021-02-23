@@ -26,7 +26,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg,mp4',
         ]);
 
 
@@ -64,7 +64,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg,mp4',
         ]);
         
         $input['image'] = time().'.'.$request->image->getClientOriginalExtension();

@@ -21,6 +21,8 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('assets/demo/demo.css ') }}" rel="stylesheet" />
   <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
   
 </head>
 
@@ -73,7 +75,7 @@
             </a>
           </li>
           <li class=" ">
-            <a href="#">
+            <a href="{{ url('blog') }}">
               <i class="fa fa-rss"></i>
               <p>Blog</p>
             </a>
@@ -112,7 +114,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons location_world"></i>
                   <p>
-                    <span class="d-lg-none d-md-block">asd</span>
+                    <span class="d-lg-none d-md-block"></span>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -121,9 +123,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                      @csrf
-                                  </form>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
                   
                 </div>
               </li>
@@ -201,7 +203,7 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.5.0 ') }}" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{ asset('assets/demo/demo.js ') }}"></script>
-  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
 
 
   @yield('scripts')

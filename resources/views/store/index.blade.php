@@ -12,20 +12,20 @@ Store
             <h2></h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-default" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle"></i>
+            <a class="btn btn-default" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle">&nbsp;New Store</i>
                 </a>
         </div>
     </div>
 </div>
 
 @if ($message = Session::get('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-info text-center">
         <p>{{ $message }}</p>
     </div>
 @endif
 
 <table class="table table-bordered table-responsive-lg">
-    <tr>
+    <tr class=" text-center">
         <th>latitude</th>
         <th>longitude</th>
         <th>Partner Name</th>
@@ -36,7 +36,7 @@ Store
         <th>Actions</th>
     </tr>
     @foreach ($stores as $store)
-        <tr>
+        <tr class=" text-center">
             <td>{{ $store->latitude }}</td>
             <td>{{ $store->longitude }}</td>
             <td>{{ $store->name }}</td>

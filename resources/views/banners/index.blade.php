@@ -19,25 +19,25 @@ Banner
 </div>
 
 @if ($message = Session::get('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-info text-center">
         <p>{{ $message }}</p>
     </div>
 @endif
 
 <table class="table table-bordered">
-    <tr>
-        <th>S.No</th>
+    <tr class=" text-center">
+        {{-- <th>S.No</th> --}}
         <th>Title</th>
         <th>Date</th>
         <th>Sequance</th>
         <th>URL</th>
         <th>Enabled</th>
         <th>Images</th>
-        <th class=" text-center">Action</th>
+        <th>Action</th>
     </tr>
     @foreach ($banners as $banner)
-    <tr>
-        <td>{{ ++$i }}</td>
+    <tr class=" text-center">
+        {{-- <td>{{ ++$i }}</td> --}}
         <td>{{ $banner->title }}</td>
         <td>{{ $banner->date }}</td>
         <td>{{ $banner->seq }}</td>
@@ -45,7 +45,7 @@ Banner
         <td>{{ $banner->enabled }}</td>
         {{-- <td>{{ $banner->image }}</td> --}}
         
-        <td><img src="{{ URL::to('/') }}/images/{{ $banner->image }}" height="100" width="100" alt="" /></td>
+        <td><img src="{{ URL::to('/') }}/images/{{ $banner->image }}" height="100" width="40%" alt="" /></td>
 
         <td>
             <form action="{{ route('banners.destroy',$banner->id) }}" method="POST" class=" text-center">

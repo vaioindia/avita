@@ -10,7 +10,7 @@ Store
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Product</h2>
+            <h2>Edit Store</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-default" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
@@ -19,7 +19,7 @@ Store
 </div>
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-info">
         <strong>Error!</strong>
         <ul>
             @foreach ($errors->all() as $error)
@@ -67,8 +67,7 @@ Store
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Address</strong>
-                <textarea class="form-control" style="height:50px" name="address"
-                    placeholder="Address">{{ $store->address }}"</textarea>
+                <input type="text" value="{{ $store->address }}" class="form-control" name="address" placeholder="Address">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -78,7 +77,7 @@ Store
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
 

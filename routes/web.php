@@ -26,9 +26,13 @@ Route::resource('store','StoreController');
 
 Route::resource('banners','BannerController');
 
+Route::resource('blog','BlogController');
 
-// Route::get('banner', 'BannerController@index');
-// Route::post('banner', 'BannerController@upload');
-// Route::post('banner', 'BannerController@show');
 
-// Route::delete('banner/{id}', 'BannerController@destroy');
+// Route::post('/home', [App\Http\Controllers\BlogController::class, 'index'])->name('home');
+// Route::get('blog/create', [App\Http\Controllers\BlogController::class, 'create']);
+// Route::post('blog', [App\Http\Controllers\BlogController::class, 'store']);
+// Route::get('blog/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit']);
+// Route::get('blog/{blog}', [App\Http\Controllers\BlogController::class, 'show']);
+// Route::put('blog/{blog}', [App\Http\Controllers\BlogController::class, 'update']);
+// Route::delete('blog/{blog}', [App\Http\Controllers\BlogController::class, 'destroy']);

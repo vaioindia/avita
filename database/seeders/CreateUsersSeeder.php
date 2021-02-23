@@ -12,16 +12,17 @@ class CreateUsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
+        $users = [
             [
                'name'=>'Admin',
-               'email'=>'admin@ashplan.media.com',
+               'email'=>'admin@ashplan.media',
                 'is_admin'=>'1',
                'password'=> bcrypt('123456'),
             ],
             [
                'name'=>'User',
-               'email'=>'user@ashplan.media.com',
+               'email'=>'user@ashplan.media
+               +',
                 'is_admin'=>'0',
                'password'=> bcrypt('123456'),
             ],

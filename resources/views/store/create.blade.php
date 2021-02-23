@@ -12,7 +12,7 @@ Store
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <br>
-            <h2>Add New</h2>
+            <h2>Add Store</h2>
         </div>
         <div class="pull-right">
             <br>
@@ -79,7 +79,7 @@ Store
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
 

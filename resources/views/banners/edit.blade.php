@@ -31,7 +31,7 @@ Banner
         </div>
     @endif
   
-    <form action="{{ route('banners.update',$banner->id) }}" method="POST">
+    <form action="{{ route('banners.update',$banner->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
    
@@ -66,35 +66,30 @@ Banner
                     <input type="text" class="form-control"  name="seq" value="{{ $banner->seq }}" placeholder="title">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                {{-- <div class="form-group">
-                    <strong>Images</strong>
-                    <br>
-                    <br>
+                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Images</strong>
+                        <br>
+                        <br>
 
-                    @if ("/images/{{ $banner->image }}")
-                        <img src="{{ asset('imges/' . $banner->image) }}" height="75" width="75"> --}}
-                        {{-- <img src="{{ $banner->image }}"> --}}
-                    {{-- @else
-                            <p>No image found</p>
-                    @endif
-                    <input type="file" name="image" value="{{ $banner->image }}">
-                    <button type="submit" class="btn btn-">Upload</button>
-                </div> --}}
-                <div class="form-group">
-                    <strong>Images</strong>
-                    <label class="col-md-4 text-right"></label>
-                    <div class="col-md-8">
-                     <input type="file" name="image" >
-                           <img src="{{ URL::to('/') }}/images/{{ $banner->image }}" class="img-thumbnail" width="100">
-                    <input type="file" name="image" value="{{ $banner->image }}"  placeholder="Upload">
+                        @if ("/images/{{ $banner->image }}")
+                            <img src="{{ asset('imges/' . $banner->image) }}" height="100" width="100">
+                            <img src="{{ $banner->image }}">
+                        @else
+                                <p>No image found</p>
+                        @endif
+                        <input type="file" name="image" value="{{ $banner->image }}">
+                        <button type="submit" class="btn btn-">Upload</button>
                     </div>
-                   </div>
-            </div>
+                </div> --}}
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <strong>Image</strong>
+                        <input type="file" name="image" class="form-control" placeholder="" value="{{ $banner->image }}">
+                    </div>
+                
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-default">Submit</button>
             </div>
         </div>
-   
     </form>
 @endsection
