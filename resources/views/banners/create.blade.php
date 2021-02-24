@@ -56,15 +56,15 @@ Banner
                     <strong>Sequance</strong>
                     <input type="text" name="seq" class="form-control" placeholder="Sequance">
                 </div>
-                {{-- <div class="custom-control custom-switch col-md-5">
+                <!-- {{-- <div class="custom-control custom-switch col-md-5">
                     <strong>Enable</strong>
                     <br>
                     <input type="checkbox" class="custom-control-input" id="switch1" name="enabled">
                     <label class="custom-control-label" for="switch1"></label>
-                </div> --}}
+                </div> --}} -->
                 <div class="col-md-12">
                     <strong>Image</strong>
-                    <input type="file" name="image" class="form-control" placeholder="">
+                    <input type="file" name="image" class="form-control" placeholder="Upload">
                 </div>
 
                 <div class="col-md-12 text-center">

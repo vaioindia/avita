@@ -28,6 +28,8 @@ Route::resource('banners','BannerController');
 
 Route::resource('blog','BlogController');
 
+Route::resource('whatnew','WhatnewController');
+
 
 // Route::post('/home', [App\Http\Controllers\BlogController::class, 'index'])->name('home');
 // Route::get('blog/create', [App\Http\Controllers\BlogController::class, 'create']);
@@ -36,3 +38,8 @@ Route::resource('blog','BlogController');
 // Route::get('blog/{blog}', [App\Http\Controllers\BlogController::class, 'show']);
 // Route::put('blog/{blog}', [App\Http\Controllers\BlogController::class, 'update']);
 // Route::delete('blog/{blog}', [App\Http\Controllers\BlogController::class, 'destroy']);
+
+
+// Route::get('news-articles', 'NewsArticlesController@index');
+// Route::post('news-articles', 'NewsArticlesController@upload');
+// Route::delete('news-articles/{id}', 'NewsArticlesController@destroy');

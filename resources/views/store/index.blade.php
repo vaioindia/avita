@@ -7,12 +7,12 @@ Store
 @section('content')
 <br>
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 ">
         <div class="pull-left">
             <h2></h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-default" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle">&nbsp;New Store</i>
+            <a class="btn btn-default m-4" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle">&nbsp;New Store</i>
                 </a>
         </div>
     </div>

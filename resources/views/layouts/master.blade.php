@@ -51,13 +51,13 @@
             </a>
           </li>
           <li>
-            <a href="{{url('banners')}}">
+            <a href="{{ url('banners') }}">
               <i class="fa fa-picture-o"></i>
               <p>Banner</p>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ url('whatnew') }}">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>What's New</p>
             </a>

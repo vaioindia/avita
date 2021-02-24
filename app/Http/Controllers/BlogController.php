@@ -29,7 +29,7 @@ class BlogController extends Controller
                 
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'uploads', $image);
+                $fileName = $request->image->move(date('mdYHis').'images', $image);
                 
             }
 
@@ -76,7 +76,7 @@ class BlogController extends Controller
         
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'uploads', $image);
+                $fileName = $request->image->move(date('mdYHis').'images', $image);
                 
             }
 
