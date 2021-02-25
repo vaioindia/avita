@@ -10,10 +10,10 @@ Banner
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2></h2>
+            <h2>Banners</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-default" href="{{ route('banners.create') }}"> Create</a>
+            <a class="btn btn-default" href="{{ route('banners.create') }}"> Create Banner</a>
         </div>
     </div>
 </div>
@@ -45,7 +45,7 @@ Banner
         <td>{{ $banner->enabled }}</td>
         {{-- <td>{{ $banner->image }}</td> --}}
         
-        <td><img src="{{ URL::to('/') }}/images/{{ $banner->image }}" height="100" width="40%" alt="" /></td>
+        <td><img src="{{ URL::to('/') }}/{{ $banner->image }}" height="100" width="40%" alt="" /></td>
 
         <td>
             <form action="{{ route('banners.destroy',$banner->id) }}" method="POST" class=" text-center">

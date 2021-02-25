@@ -34,10 +34,10 @@ Blog
                         </div>
                     @endif
                    
-                    <form action="{{ route('blog.edit',$blog->id) }}" method="post" enctype="multipart/form-data">
-                        
+                    <form action="{{ route('blog.update',$blog->id) }}" method="post" enctype="multipart/form-data">
+                    @method('PUT')
                         @csrf
-                        @method('PUT')
+                       
                         <div class="form-group">
                             <strong>Blog Title</strong>
                             <input type="text" name="title" class="form-control" value="{{$blog->title}}">
@@ -50,8 +50,8 @@ Blog
                             <strong>Images</strong>
                             
                             <div class="col-md-8">
-                             <input type="file" name="image" >
-                                   <img src="{{ url('public/image/'.$blog->image) }}" class="img-thumbnail" width="100">
+                             
+                                   <img src="{{ url('/'.$blog->image) }}" class="img-thumbnail" width="100">
                             <input type="file" name="image" value="{{ $blog->image }}"  placeholder="Upload">
                             </div>
                            </div>

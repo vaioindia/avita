@@ -43,3 +43,10 @@ Route::resource('whatnew','WhatnewController');
 // Route::get('news-articles', 'NewsArticlesController@index');
 // Route::post('news-articles', 'NewsArticlesController@upload');
 // Route::delete('news-articles/{id}', 'NewsArticlesController@destroy');
+
+
+Route::resource('retailpartner', 'RetailPartnerController');
+
+Route::resource('exclusivebrand', 'ExclusiveBrandController');
+
+Route::resource('service_center', 'ServiceController');

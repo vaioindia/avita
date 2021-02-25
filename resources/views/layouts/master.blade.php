@@ -24,7 +24,46 @@
 
   <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
   
+<style>
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #662d91;
+  padding-left: 8px;
+}
+
+.dropdown-container a{
+  text-decoration: none;
+  color: white;
+}
+
+
+/* .fa-caret-down {
+  float: right;
+  padding-right: 8px;
+} */
+
+/* .dropdown-btn:hover {
+  color: #f1f1f1;
+} */
+</style>
+
+
 </head>
+
 
 <body class="">
   <div class="wrapper ">
@@ -62,17 +101,29 @@
               <p>What's New</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="{{ url('store') }}">
               <i class="fas fa-store"></i>
               <p>Store</p>
             </a>
+          </li> -->
+          <li>
+            <a href="{{ url('retailpartner') }}">
+              <i class="fas fa-store"></i>
+              <p>Retail Partner Store</p>
+            </a>  
           </li>
           <li>
-            <a href="#">
+            <a href="{{ url('exclusivebrand') }}">
+            <i class="fas fa-store"></i>
+              <p>Exclusive Brand Store</p>
+            </a>  
+          </li>
+          <li>
+            <a href="{{ url('service_center') }}">
               <i class="fas fa-tools"></i>
               <p>Service Center</p>
-            </a>
+            </a>  
           </li>
           <li class=" ">
             <a href="{{ url('blog') }}">
@@ -208,6 +259,23 @@
 
   @yield('scripts')
 
+  <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
 
 </body>
 

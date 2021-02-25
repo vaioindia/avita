@@ -31,13 +31,18 @@ class BannerController extends Controller
 
 
 
-        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
+        if($request->hasFile('image')){
+            $image = $request->file('image')->getClientOriginalName();
+            $fileName = $request->image->move(date('mdYHis').'images/banner', $image);
+            
+        }
 
         $input['title'] = $request->title;
         $input['url'] = $request->url;
         $input['date'] = $request->date;
         $input['seq'] = $request->seq;
+        $input['image'] = $fileName;
+
 
         Banner::create($input);
   
@@ -67,13 +72,17 @@ class BannerController extends Controller
             'image' => 'mimes:jpeg,png,jpg,gif,svg,mp4',
         ]);
         
-        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
+        if($request->hasFile('image')){
+            $image = $request->file('image')->getClientOriginalName();
+            $fileName = $request->image->move(date('mdYHis').'images/banner', $image);
+            
+        }
 
         $input['title'] = $request->title;
         $input['url'] = $request->url;
         $input['date'] = $request->date;
         $input['seq'] = $request->seq;
+        $input['image'] = $fileName;
 
 
 

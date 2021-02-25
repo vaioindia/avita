@@ -29,7 +29,7 @@ class BlogController extends Controller
                 
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'images', $image);
+                $fileName = $request->image->move(date('mdYHis').'images/blog', $image);
                 
             }
 
@@ -76,7 +76,7 @@ class BlogController extends Controller
         
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'images', $image);
+                $fileName = $request->image->move(date('mdYHis').'images/blog', $image);
                 
             }
 
@@ -94,7 +94,7 @@ class BlogController extends Controller
 
 
         $blog->save();
-        return redirect('blog.index')->with('success','Updated successfully!');
+        return redirect('blog')->with('success','Updated successfully!');
     }
 
     public function destroy(Blog $blog)

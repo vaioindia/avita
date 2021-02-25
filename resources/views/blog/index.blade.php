@@ -34,7 +34,7 @@ Blog
                             <td>{{ date('Y-m-d', strtotime($blog->published_at)) }}</td>
 
                             <td>        
-                                <img src="{{ asset('images/'. $blog->image)  }}" height="100" width="100" alt="" >
+                                <img src="{{ asset('/'. $blog->image)  }}" height="100" width="100" alt="" >
                             </td>
 
                             <td class=" text-center">

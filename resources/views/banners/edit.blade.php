@@ -12,7 +12,7 @@ Banner
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit </h2>
+                <h2>Edit Banner</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-default" href="{{ route('banners.index') }}">Back</a>
@@ -66,26 +66,16 @@ Banner
                     <input type="text" class="form-control"  name="seq" value="{{ $banner->seq }}" placeholder="title">
                 </div>
             </div>
-                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Images</strong>
                         <br>
-                        <br>
-
-                        @if ("/images/{{ $banner->image }}")
-                            <img src="{{ asset('imges/' . $banner->image) }}" height="100" width="100">
-                            <img src="{{ $banner->image }}">
-                        @else
-                                <p>No image found</p>
-                        @endif
-                        <input type="file" name="image" value="{{ $banner->image }}">
-                        <button type="submit" class="btn btn-">Upload</button>
+                        <br> 
+                        <img src="{{ URL::to('/') }}/{{ $banner->image }}" class="img-thumbnail" width="100">
+                            <input type="file" name="image" value="{{ $banner->image }}"  placeholder="Upload">
                     </div>
-                </div> --}}
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <strong>Image</strong>
-                        <input type="file" name="image" class="form-control" placeholder="" value="{{ $banner->image }}">
-                    </div>
+                </div>
+                    
                 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-default">Submit</button>
