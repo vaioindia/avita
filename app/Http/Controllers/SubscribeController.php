@@ -42,11 +42,20 @@ class SubscribeController extends Controller
              
             $request->validate([
                     
-                    'email' => 'required',
-                    
-    
+                    'email' => 'required|email',
+                //     'check' => 'accepted',   
                 ]);
-      
+
+                // if($request->has('check')){
+                //     //Checkbox checked
+                // }else{
+                //     //Checkbox not checked
+                // }
+
+
+                $input['email'] = $request->email;
+                // $input['check'] = $request->check;
+                
                 Subscribe::create($request->all());
        
             return redirect()->route('subscribe_info')

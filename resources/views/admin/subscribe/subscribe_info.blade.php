@@ -1,14 +1,12 @@
+@extends('admin.layouts.app')
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Laravel Newsletter Tutorial With Example</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">    
-  </head>
-  <body>
+
+@section('content')
+
     <div class="container">
+    <br>
+    <br>
+    <br>
     @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
@@ -19,24 +17,22 @@
         <p>{{ \Session::get('failure') }}</p>
       </div><br />
      @endif
-      <h2 class="text-center">Newsletter </h2><br/>
-      <form method="post" action="{{url('subscribe')}}">
-        @csrf
-        </div>
-        <div class="row ">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-2">
-              <label for="Email"></label>
-              <input type="text" class="form-control" name="email">
-            </div>
+      <h2 class="">Newsletter </h2>
+      
+      <form  method="post" action="{{ url('subscribe') }}" enctype="multipart/form-data">
+      @csrf
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="email"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            
           </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="form-group col-md-4 ">
-            <button type="submit" class="btn btn-success">Subscribe</button>
+  
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="rememberToken"  {{ old('rememberToken') ? 'checked' : '' }}>
+            <label for="exampleCheck1">&nbsp;subscribe</label>
           </div>
-        </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-  </body>
-</html>
+    @endsection

@@ -60,8 +60,8 @@ Route::resource('products','ProductController');
 Route::resource('techspecs', 'TechspecController');
 
 Route::resource('subscribe', 'SubscribeController');
-
-Route::get('subscribe_info','SubscribeController@subscribe_info')->name('subscribe_info');;
+Route::post('subscribe','SubscribeController@store');
+Route::get('subscribe_info','SubscribeController@subscribe_info')->name('subscribe_info');
 // Route::get('news-articles', 'NewsArticlesController@index');
 
 Route::resource('brochure', 'BrochureController');
