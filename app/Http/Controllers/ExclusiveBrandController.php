@@ -13,7 +13,7 @@ class ExclusiveBrandController extends Controller
         {   
             $exclusivebrands = ExclusiveBrand::latest()->paginate(5);
   
-        return view('exclusivebrand.index',compact('exclusivebrands'))
+        return view('admin.exclusivebrand.index',compact('exclusivebrands'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
         }
 
@@ -23,7 +23,7 @@ class ExclusiveBrandController extends Controller
     
     public function create()
     {
-        return view('exclusivebrand.create');
+        return view('admin.exclusivebrand.create');
     }
 
     
@@ -54,15 +54,15 @@ class ExclusiveBrandController extends Controller
     
     public function show(ExclusiveBrand $exclusivebrand)
     {
-        //$stores = Store::find($id);
-        return view('exclusivebrand.show', compact('exclusivebrands'));
+        
+        return view('admin.exclusivebrand.show', compact('exclusivebrands'));
     }
 
     
     public function edit(ExclusiveBrand $exclusivebrand)
     {
         
-        return view('exclusivebrand.edit', compact('exclusivebrand'));
+        return view('admin.exclusivebrand.edit', compact('exclusivebrand'));
     }
 
     public function update(Request $request, ExclusiveBrand $exclusivebrand)

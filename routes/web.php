@@ -7,6 +7,8 @@ use App\Http\Controllers\BannerController;
 
 
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -17,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('admin/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::get('admin/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('is_admin');
 
@@ -50,3 +52,17 @@ Route::resource('retailpartner', 'RetailPartnerController');
 Route::resource('exclusivebrand', 'ExclusiveBrandController');
 
 Route::resource('service_center', 'ServiceController');
+
+// Route::resource('categorys','CategoryController');
+
+Route::resource('products','ProductController');
+
+Route::resource('techspecs', 'TechspecController');
+
+Route::resource('subscribe', 'SubscribeController');
+
+Route::get('subscribe_info','SubscribeController@subscribe_info')->name('subscribe_info');;
+// Route::get('news-articles', 'NewsArticlesController@index');
+
+Route::resource('brochure', 'BrochureController');
+

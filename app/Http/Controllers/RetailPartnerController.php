@@ -13,7 +13,7 @@ class RetailPartnerController extends Controller
         {   
             $retailpartners = RetailPartner::latest()->paginate(5);
   
-        return view('retailpartner.index',compact('retailpartners'))
+        return view('admin.retailpartner.index',compact('retailpartners'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
         }
 
@@ -23,7 +23,7 @@ class RetailPartnerController extends Controller
     
     public function create()
     {
-        return view('retailpartner.create');
+        return view('admin.retailpartner.create');
     }
 
     
@@ -52,17 +52,10 @@ class RetailPartnerController extends Controller
     }
 
     
-    public function show(RetailPartner $retailpartner)
-    {
-        //$stores = Store::find($id);
-        return view('retailpartner.show', compact('retailpartners'));
-    }
-
-    
     public function edit(RetailPartner $retailpartner)
     {
-        // $stores = Store::find($id);
-        return view('retailpartner.edit', compact('retailpartner'));
+        
+        return view('admin.retailpartner.edit', compact('retailpartner'));
     }
 
     public function update(Request $request, RetailPartner $retailpartner)
@@ -88,13 +81,7 @@ class RetailPartnerController extends Controller
     
     public function destroy(RetailPartner $retailpartner)
     {
-        //$id = $request->input('id');
-
-        // $stores = Store::find($id);
-        // $stores->delete();
-
-
-
+ 
             $retailpartner->delete();
   
         return redirect()->route('retailpartner.index')

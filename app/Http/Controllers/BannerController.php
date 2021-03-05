@@ -12,14 +12,14 @@ class BannerController extends Controller
     {
         $banners = Banner::latest()->paginate(5);
   
-        return view('banners.index', compact('banners'))
+        return view('admin.banners.index', compact('banners'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
    
     
     public function create()
     {
-        return view('banners.create');
+        return view('admin.banners.create');
     }
   
     public function store(Request $request)
@@ -33,7 +33,7 @@ class BannerController extends Controller
 
         if($request->hasFile('image')){
             $image = $request->file('image')->getClientOriginalName();
-            $fileName = $request->image->move(date('mdYHis').'images/banner', $image);
+            $fileName = $request->image->move('images/banner', $image);
             
         }
 
@@ -45,8 +45,6 @@ class BannerController extends Controller
 
 
         Banner::create($input);
-  
-        // Banner::create($request->all());
    
         return redirect()->route('banners.index')
                         ->with('success','Banner created successfully.');
@@ -55,13 +53,13 @@ class BannerController extends Controller
    
     public function show(Banner $banner)
     {
-        return view('banners.show',compact('banner'));
+        return view('admin.banners.show',compact('banner'));
     }
    
     
     public function edit(Banner $banner)
     {
-        return view('banners.edit',compact('banner'));
+        return view('admin.banners.edit',compact('banner'));
     }
   
     
@@ -74,7 +72,7 @@ class BannerController extends Controller
         
         if($request->hasFile('image')){
             $image = $request->file('image')->getClientOriginalName();
-            $fileName = $request->image->move(date('mdYHis').'images/banner', $image);
+            $fileName = $request->image->move('images/banner', $image);
             
         }
 
@@ -82,7 +80,7 @@ class BannerController extends Controller
         $input['url'] = $request->url;
         $input['date'] = $request->date;
         $input['seq'] = $request->seq;
-        $input['image'] = $fileName;
+        // $input['image'] = $fileName;
 
 
 

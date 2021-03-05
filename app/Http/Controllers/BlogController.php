@@ -10,12 +10,12 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('blog.index', compact('blogs'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
     public function create()
     {
-        return view('blog.create');
+        return view('admin.blog.create');
     }
 
     public function store(Request $request)
@@ -25,29 +25,18 @@ class BlogController extends Controller
             'desc' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,svg',
             ]);
-
-                
+    
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'images/blog', $image);
+                $fileName = $request->image->move('images/blog', $image);
                 
             }
-
-            /*
-
-            $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('images'), $input['image']);
-
-            */
-
 
             $blog = new Blog();
             $blog->title = $request->title;
             $blog->desc = $request->desc;
             $blog->published_at = $request->published_at;
             $blog->image = $fileName;
-           
-
 
             $blog->save();
             return redirect()->route('blog.index')
@@ -56,13 +45,13 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
-        return view('blog.show', compact('blog'));
+        return view('admin.blog.show', compact('blog'));
     }
 
     public function edit(Blog $blog)
     {
-        // $blogs = Blog::all();
-        return view('blog.edit', compact('blog'));
+        
+        return view('admin.blog.edit', compact('blog'));
     }
 
     public function update(Blog $blog, Request $request)
@@ -73,25 +62,16 @@ class BlogController extends Controller
             'image' => 'mimes:jpeg,png,jpg,gif,svg',
             ]);
 
-        
             if($request->hasFile('image')){
                 $image = $request->file('image')->getClientOriginalName();
-                $fileName = $request->image->move(date('mdYHis').'images/blog', $image);
+                $fileName = $request->image->move('images/blog', $image);
                 
             }
 
-
-/*
-            
-         $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
-        */
-    
         $blog->title = $request->title;
         $blog->desc = $request->desc;
         $blog->published_at = $request->published_at;
-        $blog->image = $fileName;
-
+        // $blog->image = $fileName;
 
         $blog->save();
         return redirect('blog')->with('success','Updated successfully!');

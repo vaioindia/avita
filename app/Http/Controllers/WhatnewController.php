@@ -7,103 +7,70 @@ use Illuminate\Http\Request;
 
 class WhatnewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $whatnews = Whatnew::latest()->paginate(5);
   
-        return view('whatnew.index',compact('whatnews'))
+        return view('admin.whatnew.index',compact('whatnews'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        return view('whatnew.create');
+        return view('admin.whatnew.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        $fileName ='';
         $request->validate([
             'title' => 'required',
             'published_at' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required',
             'url' => 'required',
         ]);
 
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image')->getClientOriginalName();
-        //     $fileName = $request->image->move(date('mdYHis').'images', $image);
+        if($request->hasFile('image')){
+            $image = $request->file('image')->getClientOriginalName();
+            $fileName = $request->image->move('images/news', $image);
             
-        // }
-        // else{
-        //     $fileName="";
-        // }
-        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
-
+        }
 
         $input['title'] = $request->title;
         $input['published_at'] = $request->published_at;
         $input['url'] = $request->url;
-        $input['image'] = $request->image;
+        $input['image'] = $fileName;
 
-        // $whatnew = new Whatnew();
-        // $whatnew->title = $request->title;
-        // $whatnew->published_at = $request->published_at;
-        // $whatnew->url = $request->url;
-        // $whatnew->image = $fileName;
+
+        // Whatnew::create($input);
+
+            // $whatnew = new Whatnew();
+            // $whatnew->title = $request->title;
+            // $whatnew->url = $request->url;
+            // $whatnew->published_at = $request->published_at;
+            // $whatnew->image = $fileName;
 
         Whatnew::create($request->all());
-        // $whatnew->save();
-
+      
         return redirect()->route('whatnew.index')
         ->with('success','created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Whatnew  $whatnew
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show(Whatnew $whatnew)
     {
-        return view('whatnew.show',compact('whatnew'));
+        return view('admin.whatnew.show',compact('whatnew'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Whatnew  $whatnew
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Whatnew $whatnew)
     {
-        return view('whatnew.edit',compact('whatnew'));
+        return view('admin.whatnew.edit',compact('whatnew'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Whatnew  $whatnew
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Whatnew $whatnew)
     {
         $request->validate([
@@ -113,63 +80,31 @@ class WhatnewController extends Controller
             'url' => 'required',          
         ]);
 
-
+        if($request->hasFile('image')){
+            $image = $request->file('image')->getClientOriginalName();
+            $fileName = $request->image->move('images/news', $image);
+            
+        }
         
-        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
-
+        
         $input['title'] = $request->title;
         $input['url'] = $request->url;
-        $input['date'] = $request->date;
-        $input['seq'] = $request->seq;
+        $input['published_at'] = $request->published_at;
+        // $input['image'] = $fileName;
 
-        Whatnew::create($input);
-
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image')->getClientOriginalName();
-        //     $fileName = $request->image->move(date('mdYHis').'images', $image);
-            
-            
-        // }
-        // else{
-        //     $fileName="";
-        // }
-
-        // $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        // $request->image->move(public_path('images'), $input['image']);
-
+        // $whatnew = new Whatnew();
         // $whatnew->title = $request->title;
-        // $whatnew->published_at = $request->published_at;
         // $whatnew->url = $request->url;
+        // $whatnew->published_at = $request->published_at;
         // $whatnew->image = $fileName;
 
-        // $input['title'] = $request->title;
-        // $input['published_at'] = $request->published_at;
-        // $input['url'] = $request->url;
-
-        // $input['title'] = $request->title;
-        // $input['published_at'] = $request->published_at;
-        // $input['url'] = $request->url;
-        // $input['image'] = $request->image;
-
-        // $whatnew->title = $request->title;
-        // $whatnew->published_at = $request->published_at;
-        // $whatnew->url = $request->url;
-        // $whatnew->image = $fileName;
-
-        // Whatnew::create($request->all());
-        // $whatnew->save();
+        Whatnew::update($input);
 
         return redirect()->route('whatnew.index')
         ->with('success','created successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Whatnew  $whatnew
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Whatnew $whatnew)
     {
         $whatnew->delete();

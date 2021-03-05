@@ -54,14 +54,14 @@ class StoreController extends Controller
     
     public function show(Store $store)
     {
-        //$stores = Store::find($id);
+        
         return view('store.show', compact('stores'));
     }
 
     
     public function edit(Store $store)
     {
-        // $stores = Store::find($id);
+        
         return view('store.edit', compact('store'));
     }
 
@@ -88,12 +88,6 @@ class StoreController extends Controller
     
     public function destroy(Store $store)
     {
-        //$id = $request->input('id');
-
-        // $stores = Store::find($id);
-        // $stores->delete();
-
-
 
             $store->delete();
   

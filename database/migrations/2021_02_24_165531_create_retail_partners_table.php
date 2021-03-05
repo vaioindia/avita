@@ -15,8 +15,8 @@ class CreateRetailPartnersTable extends Migration
     {
         Schema::create('retail_partners', function (Blueprint $table) {
             $table->id();
-            $table->decimal('latitude', 10);
-            $table->decimal('longitude', 10);
+            $table->double('latitude', 10);
+            $table->double('longitude', 10);
             $table->string('name');
             $table->string('email');
             $table->string('address',1000);

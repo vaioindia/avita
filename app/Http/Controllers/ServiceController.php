@@ -13,7 +13,7 @@ class ServiceController extends Controller
         {   
             $services = Service::latest()->paginate(5);
   
-        return view('service_center.index',compact('services'))
+        return view('admin.service_center.index',compact('services'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
         }
 
@@ -23,7 +23,7 @@ class ServiceController extends Controller
     
     public function create()
     {
-        return view('service_center.create');
+        return view('admin.service_center.create');
     }
 
     
@@ -50,19 +50,11 @@ class ServiceController extends Controller
         
 
     }
-
-    
-    public function show(Service $service)
-    {
-        //$stores = Store::find($id);
-        return view('service_center.show', compact('services'));
-    }
-
     
     public function edit(Service $service)
     {
        
-        return view('service_center.edit', compact('service'));
+        return view('admin.service_center.edit', compact('service'));
     }
 
     public function update(Request $request, Service $service)
