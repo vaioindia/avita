@@ -17,7 +17,7 @@ class CreateBannersTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('image');
-            $table->string('date');
+            $table->string('date')->nullable();
             $table->integer('seq')->default(99);
             $table->string('url', 1000)->nullable();
             $table->boolean('enabled')->nullable();

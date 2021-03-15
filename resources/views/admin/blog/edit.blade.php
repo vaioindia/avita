@@ -5,72 +5,63 @@ Blog
 @endsection
 
 @section('content')
-<br><br>
-<div class="row">
-    <br>
-    <br>
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <br>
-            <h2>Edit Blog</h2>
-        </div>
-        <div class="pull-right">
-            <br>
-            <a class="btn btn-default" href="{{ route('blog.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-        <div class="col-md-12">
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">BLOG</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">BLOG</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <!-- <i class="fas fa-table mr-1"></i> -->
+                <a class="btn btn-primary pull-right" href="{{ route('blog.index') }}">Back</a>
+            </div>
             <div class="card-body">
-                    @if (session('status'))
+                @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                   
-                    <form action="{{ route('blog.update',$blog->id) }}" method="post" enctype="multipart/form-data">
-                    @method('PUT')
+                        <form action="{{ route('blog.update',$blog->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
-                       
-                        <div class="form-group">
-                            <strong>Blog Title</strong>
-                            <input type="text" name="title" class="form-control" value="{{$blog->title}}">
+                        <div class="row">
+                        <div class="col-lg-6"> 
+                            <div class="form-group">
+                                <strong>Blog Title</strong>
+                                <input type="text" name="title" value="{{$blog->title}}" class="form-control" placeholder="Title">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <strong>Blog Body</strong>
-                            <input name="desc" id="" width="100" rows="10" rows="10" class="form-control" value="{{$blog->desc}}">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <strong for="">Description</strong>
+                                <input type="text" name="desc" value="{{$blog->desc}}" class="form-control" placeholder="Description">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <strong>Blog Body</strong>
-                            <input name="published_at" type="date" id="" width="100" rows="10" rows="10" class="form-control" value="{{$blog->published_at}}">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <strong for="">Date</strong>
+                                <input type="date" name="published_at" value="{{$blog->published_at}}" class="form-control" placeholder="Date Name">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <strong>Images</strong>
-                            <br>
-                            <br>
-                            <img src="{{ url('/'.$blog->image) }}" class="img-thumbnail" width="100">
-                            <input type="file" name="image" value="{{ $blog->image }}"  placeholder="Upload">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <strong for="">Image</strong>
+                                <img src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" class="img-thumbnail" class="w-50 h-20" />
+                                <!-- <img src="{{ url('/'.$blog->image) }}" class="img-thumbnail img-responsive"> -->
+                                <input type="file" name="image" value="{{ $blog->image }}" class="form-control img-responsive" placeholder="Image">
+                                <strong>Image Again Select</strong>
+                            </div>
                         </div>
-                        <div class="text-center">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>                   
+                    </div>
                     </form>
-                   
-                </div>
+            </div>
         </div>
-</div>
+    </div>
+</main>
 @endsection
 
 @section('scripts')
-<script>
-    ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
-</script>
+
 @endsection

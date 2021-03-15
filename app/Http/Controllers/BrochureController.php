@@ -42,7 +42,7 @@ class BrochureController extends Controller
         $fileName ='';
         $request->validate([
           
-            'reference' => 'mimes:doc,docx,jpg,jpeg,png,pdf,xlsx,xlx,ppt,pptx,csv,zip',
+            'reference' => 'mimes:doc,docx,pdf,ppt,pptx,csv',
         ]);
 
 

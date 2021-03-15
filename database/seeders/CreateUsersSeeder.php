@@ -1,8 +1,10 @@
 <?php
-  
+
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\User;
-   
+
 class CreateUsersSeeder extends Seeder
 {
     /**
@@ -12,7 +14,7 @@ class CreateUsersSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $user= [
             [
                'name'=>'Admin',
                'email'=>'admin@ashplan.media',
@@ -21,8 +23,7 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                'name'=>'User',
-               'email'=>'user@ashplan.media
-               +',
+               'email'=>'user@ashplan.media',
                 'is_admin'=>'0',
                'password'=> bcrypt('123456'),
             ],

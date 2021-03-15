@@ -1,54 +1,33 @@
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  {{-- <div class="navbar-toggler navbar-toggler-left hidden-md-up">
-    <span></span>
-</div> --}}
-  <a class="navbar-brand mr-0 hidden-md-up" href="/">
-    <img src="/images/logo.png" alt="AVITA India Official Website"/>
-</a>
-  
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-       
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Product
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Laptops</a>
-            <a class="dropdown-item" href="#">Smart Device</a>
-            <a class="dropdown-item" href="#">Accessories</a>
-           
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">What' New</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Where To Buy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Buy Online
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Nexstmall</a>
-              <a class="dropdown-item" href="#">Flipkart</a>
-              <a class="dropdown-item" href="#">Amozon</a>
-              <a class="dropdown-item" href="#">Paytm Mall</a>
-              <a class="dropdown-item" href="#">TATA Cliq</a>
-            </div>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sales Enquiry</a>
-              </li>
-          </li>
-      </ul>
-      
-    </div>
-  </nav>
+ <!-- Header SEction Start -->
+ <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand text-center" href="">AVITA</a>
+            <!-- <img class="navbar-brand" src="{{ asset('images/logo.png') }}"> -->
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                   <!--  <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div> -->
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+<!-- Header Section End -->

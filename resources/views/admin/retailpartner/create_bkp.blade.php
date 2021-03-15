@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-Store
+Retail Partner
 @endsection
 
 @section('content')
@@ -12,11 +12,11 @@ Store
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <br>
-            <h2>Add Store</h2>
+            <h2>Add Retail Partner</h2>
         </div>
         <div class="pull-right">
             <br>
-            <a class="btn btn-default" href="{{ route('store.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
+            <a class="btn btn-default" href="{{ route('retailpartner.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@ Store
         </ul>
     </div>
 @endif
-<form action="{{ route('store.store') }}" method="POST" enctype="multipart/form-data" >
+<form action="{{ route('retailpartner.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 
     <div class="row">

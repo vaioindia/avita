@@ -33,11 +33,11 @@ class AppMail
     {
         //$this->to = $user->email;
 
-        $number = DB::table('subscribes')
+        $number = DB::table('subscribe')
         ->orderBy('created_at','email')
         ->first();
 
-        $this->to =  $subscribes->email;
+        $this->to =  $subscribe->email;
         $this->subject = "AVITA INDIA | Official Website AVITA INDIA";
         $this->view = 'subscribe.subscribe_info';
         
@@ -57,6 +57,6 @@ class AppMail
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('view.name.subscribe');
     }
 }

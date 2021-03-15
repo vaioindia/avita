@@ -5,47 +5,47 @@ Brochure
 @endsection
 
 
-@section('content')<br><br>
-<div class="row">
-    <br>
-    <br>
-    <div class="col-lg-12">
-        <div class="pull-left">
-            <br>
-            <h2>Brochure File</h2>
-        </div>
-        <div class="pull-right">
-            <br>
-            <a class="btn btn-default" href="{{ route('brochure.index') }}" title="Go back">Back</a>
+@section('content')
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Brochure</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active text-primary">Brochure / Create</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <!-- <i class="fas fa-table mr-1"></i> -->
+                <a class="btn btn-primary pull-right" href="{{ route('brochure.index') }}">Back</a>
+            </div>
+            <div class="card-body">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <form action="{{ route('brochure.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <!-- <strong><h4>File</h4></strong>
+                    <div class="from-group  m-2">
+                        <input type="file" name="reference" class="form-control" placeholder="">
+                        <small class="text-primary">File: doc,docx,pdf,ppt,pptx,csv</small>
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-lg-6"> 
+                            <div class="form-group">
+                                <strong><h4>File</h4></strong>
+                                <input type="file" name="reference" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>    
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-        <div class="col-md-12">
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    
-                    <form action="{{ route('brochure.store') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="from-group">
-                            <strong>File</strong>
-                            <input type="file" name="reference" class="form-control" placeholder="">
-                        </div>
-                       
-                        <div class=" text-center mt-1">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </div>
-                    </form>
-                    
-                </div>
-            
-        </div>    
-</div>
+</main>
 @endsection
 
 @section('scripts')

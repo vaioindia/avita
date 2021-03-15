@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mailers\AppMail;
 use Illuminate\Http\Request;
 use App\Models\Subscribe;
+use Illuminate\Support\Facades\Mail;
 class SubscribeController extends Controller
 {
     /**
@@ -25,10 +26,25 @@ class SubscribeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function subscribe_info()
+    public function create()
     {
-        return view('admin.subscribe.subscribe_info');
+        return view('admin.subscribe.create');
     }
+
+    // public function subscribe_info()
+    // {
+    //     // return view('admin.subscribe.subscribe_info');
+       
+    //         $details = [
+    //             'title' => 'AVITA INDIA | Official Website AVITA INDIA',
+    //             'body' => 'This is for testing email using'
+    //         ];
+           
+    //         \Mail::to('ombhardwaj199@gmail.com')->send(new \App\Mail\MyTestMail($details));
+           
+    //         // dd("Email is Sent.");
+    // }
+
 
     /**
      * Store a newly created resource in storage.
@@ -37,30 +53,22 @@ class SubscribeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        {
-             
-            $request->validate([
-                    
-                    'email' => 'required|email',
-                //     'check' => 'accepted',   
-                ]);
+    { 
 
-                // if($request->has('check')){
-                //     //Checkbox checked
-                // }else{
-                //     //Checkbox not checked
-                // }
+        $subscribe = new Subscribe();
+        $input['email'] = $request->email;
+        //input method is used to get the value of input with its
+        //name specified
+        $subscribe->email = $request->input('email');
 
-
-                $input['email'] = $request->email;
-                // $input['check'] = $request->check;
-                
-                Subscribe::create($request->all());
-       
-            return redirect()->route('subscribe_info')
-                            ->with('success','Subscribe created successfully.');
-            }
+        $subscribe = Subscribe::create($input);
+            Mail::send('subscribe.index',$subscribe->toArray(),
+            function($message){
+                $message->to('ombhardwaj199@gmail.com','code online')->subject('New subscribe');
+            });
+        
+        $subscribe->save(); //persist the data
+        return redirect()->route('subscribe.index')->with('info','created successfully');
     }
 
     /**
@@ -69,10 +77,24 @@ class SubscribeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
+    // public function handleSubscription(Request $request, AppMail $mailer)
+    // {
+
+    //     $this->validate($request, [
+    //          'email'     => 'required',
+    //         ]);
+    
+    //     $subscription = new Subscription([
+    //        'email'     => $request->input('email'),
+    //      ]);
+        
+    //     $subscription->save();
+    //     $mailer->sendSubscriberInformation(Auth::user(), $subscription);
+    //     return redirect()->back()->with("status", "Thanks for Subscribing, We will connect you shortly.");
+
+    // }
+
 
     /**
      * Show the form for editing the specified resource.

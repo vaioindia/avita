@@ -1,150 +1,117 @@
-<div class="sidebar">
-        <div class="logo text-center" style="background: #c19cdd" >
-          
-          <img class="navbar-brand" src="{{ asset('images/logo.png') }}">
-        </div>
-        <div class="sidebar-wrapper" id="sidebar-wrapper" style="background: #662d91">
-          <ul class="nav">
-            <li>
-              <a href="{{ url('/admin/dashboard') }}">
-                <i class="now-ui-icons design_app"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('subscribe') }}">
-                <i class="fa fa-home"></i>
-                <p>Subscribe</p> 
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('brochure') }}">
-                <i class="fa fa-file-pdf-o"></i>
-                <p>Brochure</p> 
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('products') }}">
-                <i class="fa fa-laptop"></i>
-                <p>Product</p> 
-              </a>
-            </li>
-            <ul >
-              <li>
-                <a href="{{ url('techspecs') }}">
-                  <i class="fa fa-laptop"></i>
-                  <p>Tech Spec</p>
-                </a>
-              </li></ul>
-              <li>
-                <a href="{{ url('banners') }}">
-                  <i class="fa fa-picture-o"></i>
-                  <p>Banner</p>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url('whatnew') }}">
-                  <i class="now-ui-icons ui-1_bell-53"></i>
-                  <p>What's New</p>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url('retailpartner') }}">
-                  <i class="fas fa-store"></i>
-                  <p>Retail Partner Store</p>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url('exclusivebrand') }}">
-                  <i class="fas fa-store"></i>
-                  <p>Exclusive Brand Store</p>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url('service_center') }}">
-                  <i class="fas fa-tools"></i>
-                  <p>Service Center</p>
-                </a>
-              </li>
-              <li class=" ">
-                <a href="{{ url('blog') }}">
-                  <i class="fa fa-rss"></i>
-                  <p>Blog</p>
-                </a>
-              </li>
-              
-              
-            </ul>
-          </div>
-        </div>
+<!-- Sidebar section strat -->
+<div id="layoutSidenav_nav" >
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
+                            <a class="nav-link" href="{{ url('/admin/dashboard') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <!-- <div class="sb-sidenav-menu-heading">Interface</div> -->
 
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                                <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
+                                Home
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ url('subscribe') }}">Subscribe</a>
+                                    <a class="nav-link" href="{{ url('brochure') }}">Brochure</a>
+                                </nav>
+                            </div>
 
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                                <div class="sb-nav-link-icon"><i class="fa fa-laptop"></i></div>
+                                Product
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ url('products') }}">Categorys</a>
+                                    <a class="nav-link" href="{{ url('techspecs') }}">Technical  Specification</a>
+                                </nav>
+                            </div>
 
-        <div class="main-panel" id="main-panel">
-          <!-- Navbar -->
-          <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-            <div class="container-fluid">
-              <div class="navbar-wrapper">
-                <div class="navbar-toggle">
-                  <button type="button" class="navbar-toggler">
-                  <span class="navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-                  </button>
-                </div>
-                <a class="navbar-brand" href="#pablo"></a>
-              </div>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                
-                <ul class="navbar-nav">
-                  
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="now-ui-icons location_world"></i>
-                      <p>
-                        <span class="d-lg-none d-md-block"></span>
-                      </p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                      </form>
-                      
+                            <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fa fa-laptop"></i></div>
+                                Product
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a> -->
+                            <!-- <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="{{ url('products') }}" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Product
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div> -->
+                            <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
+
+                            <a class="nav-link" href="{{ url('banners') }}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
+                                Banners
+                            </a>
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                                <div class="sb-nav-link-icon"><i class="ui-1_bell-53"></i></div>
+                                What's New
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ url('whatnew') }}">News</a>
+                                    <a class="nav-link" href="{{ url('event') }}">Events</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                                <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
+                                Store
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ url('retailpartner') }}">Retail Partner Store</a>
+                                    <a class="nav-link" href="{{ url('exclusivebrand') }}">Exclusive Brand Store</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link" href="{{ url('service_center') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                                Service Center
+                            </a>
+
+                            <a class="nav-link" href="{{ url('blog') }}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-rss"></i></div>
+                                Blog
+                            </a>
+
+                        </div>
                     </div>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="">
-                      <i class="now-ui-icons users_single-02"></i>
-                      <p>
-                        
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    <!-- <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div> -->
+                </nav>
             </div>
-          </nav>
-          <!-- End Navbar -->
-          <div class="panel-header panel-header-sm" style="background: #662d91">
-          
-          </div>
-
-
-          <div class="content">
-            
-            @yield('content')
-            
-          </div>
-          
-        </div>
-      </div>
+<!-- sidebar section End

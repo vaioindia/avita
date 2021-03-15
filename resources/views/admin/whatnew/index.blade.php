@@ -5,54 +5,74 @@ New And Event
 @endsection
 
 @section('content')
-    <br><br>
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>What's News</h2>
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">News</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">News</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <!-- <i class="fas fa-table mr-1"></i> -->
+                <a class="btn btn-primary pull-right" href="{{ route('whatnew.create') }}">New News</a>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-default" href="{{ route('whatnew.create') }}"> Create News</a>
+            <div class="card-body">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-info text-center">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <!-- <th>No</th> -->
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Url</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Image</th>
+                            </tr>
+                        </tfoot> -->
+                        <tbody>
+                           @foreach ($whatnews as $whatnew)
+                            <tr>
+                                <!-- <td>{{ ++$i }}</td> -->
+                                <td>{{ $whatnew->title }}</td>
+                                <td>{{ $whatnew->published_at }}</td>
+                                <td>{{ $whatnew->url }}</td>
+                                <td width="50%"><img src="{{ URL::to('/') }}/images/news/{{ $whatnew->image }}" class="img-thumbnail w-50 h-20"/>
+                                    <!-- <img src="{{ asset('/'. $whatnew->image)  }}"class="w-50 h-20 "alt="{{ $whatnew->image }}"> -->
+                                    <!-- <img src="{{ asset('/'. $whatnew->image) }}" alt="{{ $whatnew->image }}" class="w-50 h-20 "> -->
+                                </td>
+                                <td>
+                                    <form action="{{ route('whatnew.destroy',$whatnew->id) }}" method="GET" class="d-inline">
+                                        <a href="{{ route('whatnew.edit',$whatnew->id) }}" class=""><i class="fas fa-edit  fa-lg"></i></a>
+                                        {{ csrf_field() }}
+                                        @method('DELETE')
+                                        <button class="" type="submit" style="border: none; background-color:transparent;">
+                                        <i class="fas fa-trash fa-lg text-danger"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-   
-    <table class="table table-bordered">
-        <tr class="text-center">
-            <th>No</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Url</th>
-            <th>Image</th>
-           
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($whatnews as $whatnew)
-        <tr class="text-center">
-            <td>{{ ++$i }}</td>
-            <td>{{ $whatnew->title }}</td>
-            <td>{{ $whatnew->published_at }}</td>
-            <td>{{ $whatnew->url }}</td>
-            <td><img src="{{ asset('/'. $whatnew->image)  }}" height="100" width="40%"  alt=""  ></td>
-            <td>
-            <form action="{{ route('whatnew.destroy',$whatnew->id) }}" method="POST" class="d-inline">
-                <a href="{{ route('whatnew.edit',$whatnew->id) }}" class=""><i class="fas fa-edit  fa-lg"></i></a>
-                {{ csrf_field() }}
-                @method('DELETE')
-                <button class="" type="submit" style="border: none; background-color:transparent;">
-                <i class="fas fa-trash fa-lg text-danger"></i></button>
-            </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-  
-    {!! $whatnews->links() !!}
-      
+</main>
+@endsection
+
+@section('scripts')
+    
 @endsection

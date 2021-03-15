@@ -6,62 +6,54 @@ Product
 
 
 @section('content')
-<br>
-<br>
-
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Product</h2>
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Product</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active text-primary">Product \ Edit</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <!-- <i class="fas fa-table mr-1"></i> -->
+                <a class="btn btn-primary pull-right" href="{{ route('products.index') }}">Back</a>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-default" href="{{ route('products.index') }}">Back</a>
+            <div class="card-body">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ route('products.update',$product->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="row">
+                    <div class="col-lg-6"> 
+                        <div class="form-group">
+                            <strong for="">Type</strong>
+                            <select name="type" value="{{ $product->type }}" class="form-control">
+                            <option value="laptops">Other..</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="smart devices">Smart Devices</option>
+                            <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <strong for="">Name</strong>
+                            <input type="text" name="name" value="{{ $product->name }}" class="form-control">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>                   
+                </div>
+            </form>  
             </div>
         </div>
     </div>
-   
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-  
-    <form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-   
-         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <!-- <div class="form-group">
-                    <strong>S.No</strong>
-                    <input type="text" name="" value="{{ $product->id }}" class="form-control" placeholder="">
-                </div> -->
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Type</strong>
-                    <select name="type" value="{{ $product->type }}" class="form-control">
-                    <option value="laptops">Laptops</option>
-                    <option value="smart devices">Smart Devices</option>
-                    <option value="accessories">Accessories</option>
-                    </select>
-                    <!-- <input type="text" class="form-control"  name="type" value="{{ $product->type }}" placeholder="Type"> -->
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name</strong>
-                    <input type="text" class="form-control"  name="name" value="{{ $product->name }}" placeholder="Name">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-        </div>
-    </form>
+</main>
 @endsection

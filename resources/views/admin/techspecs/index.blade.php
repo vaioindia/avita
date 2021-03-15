@@ -1,69 +1,79 @@
 @extends('admin.layouts.master')
+
 @section('title')
-Techspec
+Technical  Specification
 @endsection
 
 @section('content')
-<br>
-<br>
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>
-            Product</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-default" href="{{ route('techspecs.create') }}"> Add Specification</a>
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Technical  Specification</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active text-primary">Technical  Specification</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <!-- <i class="fas fa-table mr-1"></i> -->
+                <a class="btn btn-primary pull-right" href="{{ route('techspecs.create') }}">New Specification</a>
+            </div>
+            <div class="card-body">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-info text-center">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Specification</th>
+                                <th>Value</th>
+                                <th>Condition</th>
+                                <th>Disclaimer</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Image</th>
+                            </tr>
+                        </tfoot> -->
+                        <tbody>
+                             
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <form action="#" method="POST">
+                                            <a href="#">
+                                                <i class="fas fa-edit  fa-lg"></i>
+                                            </a>
+                                             @csrf
+                                            @method('DELETE')
+                                            <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                                <i class="fas fa-trash fa-lg text-danger"></i>
+                                            </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</main>
+@endsection
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-info text-center">
-        <p>{{ $message }}</p>
-    </div>
-@endif
 
-<table class="table table-bordered table-responsive-lg">
-    <tr class=" text-center">
-        <th>Product Name</th>
-        <th>Specs </th>
-        <th>Value</th>
-        <th>Cond</th>
-        <th>Disclaimer</th>
-        
-        <th>Actions</th>
-    </tr>
+@section('scripts')
     
-        <tr class=" text-center">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            
-            <td>
-            <form action="{{ route('techspecs.index') }}" method="POST">
-                    {{-- <!-- <a href="{{ route('store.index',$stores->id) }}" title="show">
-                        <i class="fas fa-eye text-success  fa-lg"></i>
-                    </a> --> --}}
-
-                    <a href="{{ route('techspecs.index') }}">
-                        <i class="fas fa-edit  fa-lg"></i>
-                    </a>
-
-                    <!-- @csrf
-                    @method('DELETE') -->
-
-                     <!-- @csrf
-                    @method('DELETE') -->
-                    <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                        <i class="fas fa-trash fa-lg text-danger"></i>
-                    </button>
-                </form>
-            </>
-        </tr>
-   
-</table>
-
 @endsection

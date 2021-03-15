@@ -20,7 +20,6 @@ class CreateTechspecsTable extends Migration
             $table->string('value');
             $table->boolean('is_cond')->default(false);
             $table->text('disclaimer');
-
             $table->timestamps();
         });
     }

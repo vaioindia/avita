@@ -15,13 +15,14 @@ class CreateRetailPartnersTable extends Migration
     {
         Schema::create('retail_partners', function (Blueprint $table) {
             $table->id();
-            $table->double('latitude', 10);
-            $table->double('longitude', 10);
-            $table->string('name');
-            $table->string('email');
-            $table->string('address',1000);
-            $table->string('opening_hour');
-            $table->bigInteger('phone');
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->bigInteger('phone')->unique()->nullable();
+            $table->string('address',1000)->unique()->nullable();
+            $table->time('opening_hour')->nullable();
+            $table->time('closing_hour')->nullable();
             $table->timestamps();
         });
     }

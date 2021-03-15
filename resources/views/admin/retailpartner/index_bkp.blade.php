@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-Store
+Retail Partner
 @endsection
 
 @section('content')
@@ -9,10 +9,11 @@ Store
 <div class="row">
     <div class="col-lg-12 ">
         <div class="pull-left">
-            <h2></h2>
+        <br>
+            <h2>Retail Partner</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-default m-4" href="{{ route('store.create') }}" title="Create a product"> <i class="fas fa-plus-circle">&nbsp;New Store</i>
+            <a class="btn btn-default m-4" href="{{ route('retailpartner.create') }}" title="Create">New Retail Partner</i>
                 </a>
         </div>
     </div>
@@ -35,22 +36,22 @@ Store
         <th>Opening hour</th>
         <th>Actions</th>
     </tr>
-    @foreach ($stores as $store)
+    @foreach ($retailpartners as $retailpartner)
         <tr class=" text-center">
-            <td>{{ $store->latitude }}</td>
-            <td>{{ $store->longitude }}</td>
-            <td>{{ $store->name }}</td>
-            <td>{{ $store->email }}</td>
-            <td>{{ $store->phone }}</td>
-            <td>{{ $store->address }}</td>
-            <td>{{ $store->opening_hour }}</td>
+            <td>{{ $retailpartner->latitude }}</td>
+            <td>{{ $retailpartner->longitude }}</td>
+            <td>{{ $retailpartner->name }}</td>
+            <td>{{ $retailpartner->email }}</td>
+            <td>{{ $retailpartner->phone }}</td>
+            <td>{{ $retailpartner->address }}</td>
+            <td>{{ $retailpartner->opening_hour }}</td>
             <td>
-            <form action="{{ route('store.destroy',$store->id) }}" method="POST">
+            <form action="{{ route('retailpartner.destroy',$retailpartner->id) }}" method="POST">
                     {{-- <!-- <a href="{{ route('store.index',$stores->id) }}" title="show">
                         <i class="fas fa-eye text-success  fa-lg"></i>
                     </a> --> --}}
 
-                    <a href="{{ route('store.edit',$store->id) }}">
+                    <a href="{{ route('retailpartner.edit',$retailpartner->id) }}">
                         <i class="fas fa-edit  fa-lg"></i>
                     </a>
 
@@ -68,7 +69,7 @@ Store
     @endforeach
 </table>
 
-{!! $stores->links() !!}
+{!! $retailpartners->links() !!}
 @endsection
 
 
