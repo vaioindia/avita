@@ -49,7 +49,7 @@ class ExclusiveBrandController extends Controller
 
         $path = $request->file('select_file')->store('temp'); 
         $path=storage_path('app').'/'.$path;  
-        $data = \Excel::import(new RetailPartnerimport,$path);
+        $data = \Excel::import(new ExclusiveBrandimport,$path);
 
         return back();
     }
