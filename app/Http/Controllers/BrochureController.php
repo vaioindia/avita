@@ -40,9 +40,16 @@ class BrochureController extends Controller
     public function store(Request $request)
     {
         $fileName ='';
+        $reference ='';
+        
+        $request->validate([
+            'reference'    =>  'required'
+        ]);
+
+
         $request->validate([
           
-            'reference' => 'mimes:doc,docx,pdf,ppt,pptx,csv',
+            'reference.*' => 'required|mimes:doc,docx,pdf,ppt,pptx,csv',
         ]);
 
 
