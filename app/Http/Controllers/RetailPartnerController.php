@@ -41,6 +41,10 @@ class RetailPartnerController extends Controller
 
     public function import(Request $request)
     {
+        $request->validate([
+            'select_file' => 'required',
+
+            ]);
         // $path = $request->file('select_file')->getRealPath();
         // $data = \Excel::import(new RetailPartnerimport,$path);      
         // Excel::import(new RetailPartnerimport, $request ->file);
@@ -48,22 +52,23 @@ class RetailPartnerController extends Controller
         $path = $request->file('select_file')->store('temp'); 
         $path=storage_path('app').'/'.$path;  
         $data = \Excel::import(new RetailPartnerimport,$path);
+        return redirect()->route('retailpartner.index')->with('success','created successfully');
 
         return back();
     }
     
     public function store(Request $request)
     {    
-            // $request->validate([
-            //     'latitude' => 'required',
-            //     'longitude' => 'required',
-            //     'name' => 'required',
-            //     'email' => 'required',
-            //     'address' => 'required',
-            //     'opening_hour' => 'required',
-            //     'closing_hour' => 'required',
-            //     'phone' => 'required'
-            // ]);
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'opening_hour' => 'required',
+            'closing_hour' => 'required',
+        ]);
   
             // RetailPartner::create($request->all());
             // return redirect()->route('retailpartner.index')
@@ -81,7 +86,7 @@ class RetailPartnerController extends Controller
             $retailpartner->opening_hour = $request->input('opening_hour');
             $retailpartner->closing_hour = $request->input('closing_hour');
             $retailpartner->save(); //persist the data
-            return redirect()->route('retailpartner.index')->with('info','created successfully');
+            return redirect()->route('retailpartner.index')->with('success','created successfully');
     }
 
     
@@ -102,16 +107,16 @@ class RetailPartnerController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'latitude' => 'required',
-        //     'longitude' => 'required',
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        //     'opening_hour' => 'required',
-        //     'closing_hour' => 'required',
-        //     'phone' => 'required'    
-        // ]);
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'opening_hour' => 'required',
+            'closing_hour' => 'required',
+        ]);
 
         // $retailpartner->update($request->all());
         // return redirect()->route('retailpartner.index')
@@ -127,7 +132,7 @@ class RetailPartnerController extends Controller
             $retailpartner->opening_hour = $request->input('opening_hour');
             $retailpartner->closing_hour = $request->input('closing_hour');
             $retailpartner->save(); //persist the data
-            return redirect()->route('retailpartner.index')->with('info',' Updated successfully');
+            return redirect()->route('retailpartner.index')->with('success',' Updated successfully');
     }
 
     

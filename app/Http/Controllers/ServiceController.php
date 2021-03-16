@@ -41,6 +41,10 @@ class ServiceController extends Controller
 
     public function import(Request $request)
     {
+        $request->validate([
+            'select_file' => 'required',
+
+            ]);
         // $path = $request->file('select_file')->getRealPath();
         // $data = \Excel::import(new Serviceimport,$path);      
         // Excel::import(new Serviceimport, $request ->file);
@@ -48,22 +52,23 @@ class ServiceController extends Controller
         $path = $request->file('select_file')->store('temp'); 
         $path=storage_path('app').'/'.$path;  
         $data = \Excel::import(new Serviceimport,$path);
+        return redirect()->route('service_center.index')->with('success','created successfully');
 
         return back();
     }
     
     public function store(Request $request)
     {    
-        // $request->validate([
-        //         'latitude' => 'required',
-        //         'longitude' => 'required',
-        //         'name' => 'required',
-        //         'email' => 'required',
-        //         'address' => 'required',
-        //         'closing_hour' => 'required',
-        //         'opening_hour' => 'required',
-        //         'phone' => 'required'
-        //     ]);
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'opening_hour' => 'required',
+            'closing_hour' => 'required',
+        ]);
   
         //     Service::create($request->all());
         //     return redirect()->route('service_center.index')
@@ -81,7 +86,7 @@ class ServiceController extends Controller
         $service->opening_hour = $request->input('opening_hour');
         $service->closing_hour = $request->input('closing_hour');
         $service->save(); //persist the data
-        return redirect()->route('service_center.index')->with('info','created successfully');
+        return redirect()->route('service_center.index')->with('success','created successfully');
     }
     
     public function edit($id)
@@ -95,17 +100,16 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'latitude' => 'required',
-        //     'longitude' => 'required',
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        //     'closing_hour' => 'required',
-        //     'opening_hour' => 'required',
-        //     'phone' => 'required'
-
-        // ]);
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'opening_hour' => 'required',
+            'closing_hour' => 'required',
+        ]);
         // $service->update($request->all());
   
         // return redirect()->route('service_center.index')
@@ -122,7 +126,7 @@ class ServiceController extends Controller
         $service->opening_hour = $request->input('opening_hour');
         $service->closing_hour = $request->input('closing_hour');
         $service->save(); //persist the data
-        return redirect()->route('service_center.index')->with('info',' Updated successfully');
+        return redirect()->route('service_center.index')->with('success',' Updated successfully');
     }
 
     

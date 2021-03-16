@@ -43,6 +43,10 @@ class ExclusiveBrandController extends Controller
 
     public function import(Request $request)
     {
+        $request->validate([
+            'select_file' => 'required',
+
+            ]);
         // $path = $request->file('select_file')->getRealPath();
         // $data = \Excel::import(new ExclusiveBrandimport,$path);      
         // Excel::import(new ExclusiveBrandimport, $request ->file);
@@ -50,6 +54,7 @@ class ExclusiveBrandController extends Controller
         $path = $request->file('select_file')->store('temp'); 
         $path=storage_path('app').'/'.$path;  
         $data = \Excel::import(new ExclusiveBrandimport,$path);
+        return redirect()->route('exclusivebrand.index')->with('success','created successfully');
 
         return back();
     }
@@ -62,16 +67,16 @@ class ExclusiveBrandController extends Controller
     
     public function store(Request $request)
     {    
-        // $request->validate([
-        //         'latitude' => 'required',
-        //         'longitude' => 'required',
-        //         'name' => 'required',
-        //         'email' => 'required',
-        //         'address' => 'required',
-        //         'opening_hour' => 'required',
-        //         'closing_hour' => 'required',
-        //         'phone' => 'required'
-        //     ]);
+        $request->validate([
+                'latitude' => 'required',
+                'longitude' => 'required',
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+                'opening_hour' => 'required',
+                'closing_hour' => 'required',
+            ]);
   
         //     ExclusiveBrand::create($request->all());
         //     return redirect()->route('exclusivebrand.index')
@@ -89,7 +94,7 @@ class ExclusiveBrandController extends Controller
         $exclusivebrand->opening_hour = $request->input('opening_hour');
         $exclusivebrand->closing_hour = $request->input('closing_hour');
         $exclusivebrand->save(); //persist the data
-        return redirect()->route('exclusivebrand.index')->with('info','created successfully');
+        return redirect()->route('exclusivebrand.index')->with('success','created successfully');
     }
 
     
@@ -112,17 +117,16 @@ class ExclusiveBrandController extends Controller
 
     public function update(Request $request, $id)
     {   
-        // (Request $request, $id, ExclusiveBrand $exclusivebrand)
-        // $request->validate([
-        //     'latitude' => 'required',
-        //     'longitude' => 'required',
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        //     'opening_hour' => 'required',
-        //     'closing_hour' => 'required',
-        //     'phone' => 'required'
-        // ]);
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'opening_hour' => 'required',
+            'closing_hour' => 'required',
+        ]);
         // $exclusivebrand->update($request->all());
   
         // return redirect()->route('exclusivebrand.index')
@@ -139,7 +143,7 @@ class ExclusiveBrandController extends Controller
         $exclusivebrand->opening_hour = $request->input('opening_hour');
         $exclusivebrand->closing_hour = $request->input('closing_hour');
         $exclusivebrand->save(); //persist the data
-        return redirect()->route('exclusivebrand.index')->with('info',' Updated successfully');
+        return redirect()->route('exclusivebrand.index')->with('success',' Updated successfully');
 
         
     }
