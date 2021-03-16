@@ -14,7 +14,7 @@ Service Center
         <div class="card mb-4">
             <div class="card-header">
                 <!-- <i class="fas fa-table mr-1"></i> -->
-                <a class="btn btn-primary pull-right" href="{{ route('retailpartner.index') }}">Back</a>
+                <a class="btn btn-primary pull-right" href="{{ route('service_center.index') }}">Back</a>
             </div>
             <div class="card-body">
                 @if ($errors->any())
