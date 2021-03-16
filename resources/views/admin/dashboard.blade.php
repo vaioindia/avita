@@ -143,4 +143,9 @@ Dashboard
 
 
 @section('scripts')
+
+<script type="text/javascript" defer src="{{ asset('assets/demo/Chart.min.js') }}"></script>
+<script type="text/javascript" defer src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
+<script type="text/javascript" defer src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script> 
+
 @endsection
