@@ -115,7 +115,7 @@ Route::resource('techspecs', 'TechspecController');
 Route::get('/subscribe', 'SubscribeController@index')->name('subscribe.index'); 
 Route::get('/subscribe/create','SubscribeController@create')->name('subscribe.create');
 // Route::post('/subscribe','SubscribeController@store')->name('subscribe.store');
-// Route::get('/subscribe/{id}/delete','SubscribeController@destroy')->name('subscribe.destroy');
+Route::get('/subscribe/{id}/delete','SubscribeController@destroy')->name('subscribe.destroy');
 // Route::get('/subscribe_info','SubscribeController@subscribe_info')->name('subscribe.subscribe_info');
 
 // Route::post('subscribe', 'SubscribeController@handleSubscription');
