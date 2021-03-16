@@ -11,12 +11,12 @@ class ExclusiveBrand extends Model
     // protected $table = "exclusive_brands";
     
     protected $fillable = [
-        'latitude', 'longitude', 'name','email','address','opening_hour','closing_hour','phone'
+        'latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour'
        ];
 
        public static function getRetailPartner()
        {
-           $records = DB::table('exclusive_brands')->select('id','latitude', 'longitude', 'name','email','address','opening_hour','closing_hour','phone')->get()->toArray();
+           $records = DB::table('exclusive_brands')->select('id','latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
            return $records;
        }
 }

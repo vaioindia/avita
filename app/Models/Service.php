@@ -11,12 +11,12 @@ class Service extends Model
     // protected $table = "services";
 
     protected $fillable = [
-        'latitude', 'longitude', 'name','email','address','opening_hour','closing_hour','phone'
+        'latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour'
        ];
 
        public static function getRetailPartner()
        {
-           $records = DB::table('services')->select('id','latitude', 'longitude', 'name','email','address','opening_hour','closing_hour','phone')->get()->toArray();
+           $records = DB::table('services')->select('id','latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
            return $records;
        }
 }
