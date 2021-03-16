@@ -18,20 +18,6 @@ class ServiceExport implements FromCollection,WithHeadings
     */
     public function collection()
     {
-        // return collect([
-        //     [
-        //         'name' => 'Povilas',
-        //         'surname' => 'Korop',
-        //         'email' => 'povilas@laraveldaily.com',
-        //         'twitter' => '@povilaskorop'
-        //     ],
-        //     [
-        //         'name' => 'Taylor',
-        //         'surname' => 'Otwell',
-        //         'email' => 'taylor@laravel.com',
-        //         'twitter' => '@taylorotwell'
-        //     ]
-        // ]);
         return Service::all();
         return collect(Service::getService());
     }

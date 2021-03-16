@@ -11,7 +11,7 @@ class RetailPartnerExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return[
-            'Latitude', 'Longitude', 'Name','Email','Address','Phone','Opening hour','Closing hour'
+            'S.NO','Latitude', 'Longitude', 'Name','Email','Phone','Address','Opening hour','Closing hour'
         ];
     }
     /**
@@ -19,7 +19,7 @@ class RetailPartnerExport implements FromCollection,WithHeadings
     */
     public function collection()
     {
-        // return RetailPartner::all();
+        return RetailPartner::all();
         return collect(RetailPartner::getRetailPartner());
     }
 }

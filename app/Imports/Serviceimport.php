@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class Serviceimport implements ToModel,WithHeadingRow
 {
-    /**
+    /**'S.NO','Latitude', 'Longitude', 'Name','Email','Phone','Address','Opening hour','Closing hour'
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
@@ -20,10 +20,10 @@ class Serviceimport implements ToModel,WithHeadingRow
             'longitude' => $row['longitude'],
             'name' => $row['name'],
             'email' => $row['email'],
+            'phone' => $row['phone'],
             'address' => $row['address'],
             'opening_hour' => $row['opening_hour'],
             'closing_hour' => $row['closing_hour'],
-            'phone' => $row['phone'],
         ]);
     }
 }
