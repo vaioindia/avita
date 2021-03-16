@@ -41,9 +41,14 @@ class ServiceController extends Controller
 
     public function import(Request $request)
     {
-        $path = $request->file('select_file')->getRealPath();
-        $data = \Excel::import(new Serviceimport,$path);      
+        // $path = $request->file('select_file')->getRealPath();
+        // $data = \Excel::import(new Serviceimport,$path);      
         // Excel::import(new Serviceimport, $request ->file);
+
+        $path1 = $request->file('select_file')->store('temp'); 
+        $path=storage_path('app').'/'.$path1;  
+        $data = \Excel::import(new Serviceimport,$path);
+
         return back();
     }
     
