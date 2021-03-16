@@ -20,6 +20,12 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title'    =>  'required',
+            'published_at'     =>  'required',
+            'desc'     =>  'required',
+            'image'         =>  'image|max:5000'
+        ]);
         // $request->validate([
         //     'title' => 'required',
         //     'desc' => 'required',
@@ -78,6 +84,12 @@ class BlogController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'    =>  'required',
+            'published_at'     =>  'required',
+            'desc'     =>  'required',
+            'image'         =>  'image|max:5000'
+        ]);
         // $request->validate([
         //     'title' => 'required',
         //     'desc' => 'required',
