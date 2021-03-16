@@ -16,7 +16,7 @@ class Service extends Model
 
        public static function getRetailPartner()
        {
-           $records = DB::table('services')->select('id','latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
+           $records = DB::table('services')->select('latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
            return $records;
        }
 }

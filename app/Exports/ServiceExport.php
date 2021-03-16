@@ -10,15 +10,7 @@ class ServiceExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return[
-            'id',
-            'latitude',
-            'longitude',
-            'name',
-            'email',
-            'address',
-            'phone',
-            'opening_hour',
-            'closing_hour'
+            'S.NO','Latitude', 'Longitude', 'Name','Email','Phone','Address','Opening hour','Closing hour'
         ];
     }
     /**
@@ -26,6 +18,20 @@ class ServiceExport implements FromCollection,WithHeadings
     */
     public function collection()
     {
+        // return collect([
+        //     [
+        //         'name' => 'Povilas',
+        //         'surname' => 'Korop',
+        //         'email' => 'povilas@laraveldaily.com',
+        //         'twitter' => '@povilaskorop'
+        //     ],
+        //     [
+        //         'name' => 'Taylor',
+        //         'surname' => 'Otwell',
+        //         'email' => 'taylor@laravel.com',
+        //         'twitter' => '@taylorotwell'
+        //     ]
+        // ]);
         return Service::all();
         return collect(Service::getService());
     }

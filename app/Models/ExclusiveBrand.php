@@ -16,7 +16,7 @@ class ExclusiveBrand extends Model
 
        public static function getRetailPartner()
        {
-           $records = DB::table('exclusive_brands')->select('id','latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
+           $records = DB::table('exclusive_brands')->select('latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour')->get()->toArray();
            return $records;
        }
 }

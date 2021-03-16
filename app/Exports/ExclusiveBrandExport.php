@@ -11,15 +11,7 @@ class ExclusiveBrandExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return[
-            'id',
-            'latitude',
-            'longitude',
-            'name',
-            'email',
-            'address',
-            'phone',
-            'opening_hour',
-            'closing_hour'
+            'S.NO','Latitude', 'Longitude', 'Name','Email','Phone','Address','Opening hour','Closing hour'
         ];
     }
     /**
