@@ -13,7 +13,6 @@ New And Event
         </ol>
         <div class="card mb-4">
             <div class="card-header">
-                <!-- <i class="fas fa-table mr-1"></i> -->
                 <a class="btn btn-primary pull-right" href="{{ route('whatnew.index') }}">Back</a>
             </div>
             <div class="card-body">
