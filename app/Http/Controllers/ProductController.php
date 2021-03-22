@@ -1,79 +1,63 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
-use App\Models\Product;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    
-    public function index()
-    {   
-
-        $products = Product::latest()->paginate(5);
-
-        return view('admin.products.index',compact('products'))
-
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admiror()
+    {
+        return view('product.laptop.admiror');
     }
 
-    
-    public function create()
+    public function essential()
     {
-        // $categorys = Category::select("id", "name")->get();
-        return view('admin.products.create');
+        return view('product.laptop.essential');
     }
 
-   
-    public function store(Request $request)
+    public function liber_v_gold()
     {
-        $request->validate([
-            'type' => 'required',
-            'name' => 'required',
-            
-        ]);
-  
-        Product::create($request->all());
-   
-        return redirect()->route('products.index')
-                        ->with('success',' created successfully.');
+        return view('product.laptop.liber-v-gold');
     }
 
-    
-    public function show(Product $product)
+    public function liber_v14()
     {
-        return view('admin.products.show',compact('products'));
+        return view('product.laptop.liber-v14');
     }
 
-    
-    public function edit(Product $product)
+    public function liber()
     {
-        // $categorys = Category::select("id", "name")->get();
-        return view('admin.products.edit',compact('product'));
+        return view('product.laptop.liber');
     }
 
-    
-    public function update(Request $request, Product $product)
+    public function magus()
     {
-        $request->validate([
-            // 'type' => 'required',
-            'name' => 'required',
-            
-        ]);
-  
-        $product->update($request->all());
-  
-        return redirect()->route('products.index')
-                        ->with('success',' updated successfully');
+        return view('product.laptop.magus');
     }
 
-    
-    public function destroy(Product $product)
+    public function pura()
     {
-        $product->delete();
-  
-        return redirect()->route('products.index')
-                        ->with('success',' deleted successfully');
+        return view('product.laptop.pura');
+    }
+
+    public function ubique_mouse()
+    {
+        return view('product.accessories.ubique-mouse');
+    }
+
+    public function imago_series_smart_mirror()
+    {
+        return view('product.smart-device.imago-series-smart-mirror');
+    }
+
+    public function modus_smart_scale()
+    {
+        return view('product.smart-device.modus-smart-scale');
     }
 }

@@ -14,9 +14,9 @@ Retail Partner
         <div class="card mb-4">
             <div class="card-header">
                 <!-- <i class="fas fa-table mr-1"></i> -->
-                <a class="btn btn-primary pull-right" href="{{ url('/exclusivebrand/create') }}">New Exclusive Brand Partner</a>
+                <a class="btn btn-primary pull-right" href="{{ route('exclusivebrand.create') }}">New Exclusive Brand Partner</a>
             </div>
-            
+
             <form method="POST" enctype="multipart/form-data" action="{{ route('exclusivebrand.import') }}">
                 @csrf
                 <div class="form-group">
@@ -80,7 +80,7 @@ Retail Partner
                             </tr>
                         </tfoot> -->
                         <tbody>
-                        
+
                         @foreach($exclusivebrands as $exclusivebrand)
                             <tr>
                                 <td>{{ $exclusivebrand->latitude }}</td>
@@ -116,5 +116,5 @@ Retail Partner
 
 
 @section('scripts')
-    
+
 @endsection

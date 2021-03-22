@@ -16,7 +16,7 @@
 
         <style>
             <style>
-      
+
       html, body {
         background-color: #fff;
         color: #636b6f;
@@ -25,36 +25,36 @@
         height: 100vh;
         margin: 0;
       }
-      
+
       .full-height {
         height: 100vh;
       }
-      
+
       .flex-center {
         align-items: center;
         display: flex;
         justify-content: center;
       }
-      
+
       .position-ref {
         position: relative;
       }
-      
+
       .top-right {
         position: absolute;
         right: 10px;
         top: 18px;
       }
-      
+
       .content {
         text-align: center;
         padding-top:15%;
       }
-      
+
       .title {
         font-size: 84px;
       }
-      
+
       .links > a {
         color: rebeccapurple;
         padding: 15px 40px;
@@ -65,11 +65,11 @@
         text-decoration: none;
         text-transform: uppercase;
         border-radius:25px;
-        border:2px solid rebeccapurple;  
+        border:2px solid rebeccapurple;
       }
-      
-      
-      
+
+
+
       .links > a:hover {
         color: white;
         background-color:rebeccapurple;
@@ -80,16 +80,16 @@
         letter-spacing: .1rem;
         text-decoration: none;
         text-transform: uppercase;
-        border:2px solid rebeccapurple;  
+        border:2px solid rebeccapurple;
       }
-      
-      
+
+
       .m-b-md {
         margin-bottom: 30px;
       }
-      
+
               </style>
-       
+
     </head>
     <body >
 
@@ -106,15 +106,15 @@
                    @else
                      <a href="{{ url('/dashboard') }}" class="btn btn-primary">Dashboard</a>
                    @endif
-           
+
                 @else
-           
+
                 <a class="button btn btn-primary" href="{{ route('login') }}">Login</a>
-             
+
                 @if (Route::has('register'))
                      <a class="button btn btn-primary" href="{{ route('register') }}">Register</a>
                 @endif
-             
+
            @endif
 
             </div>
@@ -142,7 +142,7 @@
                 </div>
             @endif
 
-           
+
         </div> --}}
     </body>
 </html>

@@ -1,6 +1,6 @@
  <!-- Header SEction Start -->
  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand text-center" href="">AVITA</a>
+            <a class="navbar-brand text-center" href="/">AVITA</a>
             <!-- <img class="navbar-brand" src="{{ asset('images/logo.png') }}"> -->
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->

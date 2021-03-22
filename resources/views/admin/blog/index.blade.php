@@ -41,7 +41,7 @@ Blog
                                 <td >{{ $blog->desc }}</td>
                                 <td>{{ $blog->published_at }}</td>
                                 <td width="40%">
-                                    <img src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" class="img-thumbnail w-50 h-20"/>   
+                                    <img src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" class="img-thumbnail w-50 h-20"/>
                                     <!-- <img src="{{ asset('/'. $blog->image) }}" alt="{{ $blog->title }}" class="w-50 h-20 "> -->
                                 </td>
                                 <td>

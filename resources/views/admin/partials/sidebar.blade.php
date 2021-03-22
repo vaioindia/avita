@@ -17,8 +17,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('subscribe') }}">Subscribe</a>
-                                    <a class="nav-link" href="{{ url('brochure') }}">Brochure</a>
+                                    <a class="nav-link" href="{{ url('admin/subscribe') }}">Subscribe</a>
+                                    <a class="nav-link" href="{{ url('admin/brochure') }}">Brochure</a>
                                 </nav>
                             </div>
 
@@ -29,8 +29,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('products') }}">Categorys</a>
-                                    <a class="nav-link" href="{{ url('techspecs') }}">Technical  Specification</a>
+                                    <a class="nav-link" href="{{ url('admin/products') }}">Categorys</a>
+                                    <a class="nav-link" href="{{ url('admin/techspecs') }}">Technical  Specification</a>
                                 </nav>
                             </div>
 
@@ -67,7 +67,7 @@
                             </div> -->
                             <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
 
-                            <a class="nav-link" href="{{ url('banners') }}">
+                            <a class="nav-link" href="{{ url('admin/banners') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
                                 Banners
                             </a>
@@ -79,8 +79,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('whatnew') }}">News</a>
-                                    <a class="nav-link" href="{{ url('event') }}">Events</a>
+                                    <a class="nav-link" href="{{ url('admin/whatnew') }}">News</a>
+                                    <a class="nav-link" href="{{ url('admin/event') }}">Events</a>
                                 </nav>
                             </div>
 
@@ -91,17 +91,17 @@
                             </a>
                             <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('retailpartner') }}">Retail Partner Store</a>
-                                    <a class="nav-link" href="{{ url('exclusivebrand') }}">Exclusive Brand Store</a>
+                                    <a class="nav-link" href="{{ url('admin/retailpartner') }}">Retail Partner Store</a>
+                                    <a class="nav-link" href="{{ url('admin/exclusivebrand') }}">Exclusive Brand Store</a>
                                 </nav>
                             </div>
 
-                            <a class="nav-link" href="{{ url('service_center') }}">
+                            <a class="nav-link" href="{{ url('admin/service_center') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                                 Service Center
                             </a>
 
-                            <a class="nav-link" href="{{ url('blog') }}">
+                            <a class="nav-link" href="{{ url('admin/blog') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-rss"></i></div>
                                 Blog
                             </a>

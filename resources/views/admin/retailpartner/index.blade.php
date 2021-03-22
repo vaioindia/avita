@@ -90,13 +90,13 @@ Retail Partner
                                 <td>{{ $retailpartner->address }}</td>
                                 <td>{{ $retailpartner->opening_hour }}</td>
                                 <td>{{ $retailpartner->closing_hour }}</td>
-                                <td> 
+                                <td>
                                 <form method="get" action="{{ route('retailpartner.destroy',$retailpartner->id) }}">
                                     <a href="{{ route('retailpartner.edit',$retailpartner->id) }}">
                                         <i class="fas fa-edit  fa-lg"></i>
                                     </a>
                                     @csrf
-                                    @method('delete')    
+                                    @method('delete')
                                     <button type="submit" title="delete" style="border: none; background-color:transparent;">
                                         <i class="fas fa-trash fa-lg text-danger"></i>
                                     </button>
@@ -115,5 +115,5 @@ Retail Partner
 
 
 @section('scripts')
-    
+
 @endsection
