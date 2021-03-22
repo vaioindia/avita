@@ -7,6 +7,7 @@
 @section('content')
 
 <!-- Content -->
+
 <main>
     <section class="top-nav-padding support-search-section">
        <div class="support-search-wrap pb-sm-5">
