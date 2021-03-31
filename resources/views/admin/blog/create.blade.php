@@ -8,9 +8,9 @@ Blog
 @section('content')
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">BLOG</h1>
+        <h1 class="mt-4">Blog</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">BLOG</li>
+            <li class="breadcrumb-item active">Blog</li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">
@@ -36,7 +36,7 @@ Blog
                     <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-lg-6"> 
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <strong>Blog Title</strong>
                                 <input type="text" name="title" class="form-control" placeholder="Title">
@@ -60,8 +60,8 @@ Blog
                                 <input type="file" name="image" class="form-control img-responsive" placeholder="Image">
                             </div>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Submit</button>                   
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     </form>
             </div>

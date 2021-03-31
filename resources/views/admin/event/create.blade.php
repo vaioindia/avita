@@ -7,7 +7,7 @@ Event
 @section('content')
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">EVENT</h1>
+        <h1 class="mt-4">Event</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active text-primary">Events / Create</li>
         </ol>
@@ -30,7 +30,7 @@ Event
                         <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                        <div class="col-lg-6"> 
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <strong>Title</strong>
                                 <input type="text" name="title" class="form-control" placeholder="Title">
@@ -54,8 +54,8 @@ Event
                                 <input type="file" name="image" class="form-control img-responsive" placeholder="Image">
                             </div>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Submit</button>                   
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     </form>
             </div>

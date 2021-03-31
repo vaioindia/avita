@@ -1,16 +1,16 @@
 @extends('admin.layouts.master')
 
 @section('title')
-Product
+Category
 @endsection
 
 
 @section('content')
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Product</h1>
+        <h1 class="mt-4">Category</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active text-primary">Product \ Edit</li>
+            <li class="breadcrumb-item active text-primary">Category \ Edit</li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">

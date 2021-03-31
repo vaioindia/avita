@@ -7,7 +7,7 @@ Banner
 @section('content')
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">BANNER</h1>
+        <h1 class="mt-4">Banner</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Banner</li>
         </ol>

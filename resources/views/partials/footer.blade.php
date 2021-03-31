@@ -25,7 +25,7 @@
                       <a href="aboutus.html" class="my-1">About Us</a>
                    </div>
                    <div class="d-flex flex-column ml-5 ml-md-0 small-lsm-little">
-                      <a href="where-to-buy" class="my-1">Where to Buy</a>
+                      <a href="{{ route('wheretobuy')}}" class="my-1">Where to Buy</a>
                       <a href="contact-us.html" class="my-1">Contact Avita</a>
                    </div>
                    <div class="d-flex flex-column ml-5 ml-md-0 small-lsm-little">
@@ -40,8 +40,8 @@
                    <div class="d-flex flex-column mr-5 small-lsm-little">
                       <a href="#" class="my-1">Products</a>
                       <a href="#" class="my-1">What&#039;s New</a>
-                      <a href="aboutus.html" class="my-1">About Us</a>
-                      <a href="where-to-buy" class="my-1">Where to Buy</a>
+                      <a href="#" class="my-1">About Us</a>
+                      <a href="{{ route('wheretobuy')}}" class="my-1">Where to Buy</a>
                    </div>
                    <div class="d-flex flex-column ml-5 ml-md-0 small-lsm-little">
                       <a href="repair-tnc.html" class="my-1">Repair Terms &amp; Condition</a>
