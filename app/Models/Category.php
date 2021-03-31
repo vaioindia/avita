@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+
+    protected $table = "category";
+
     protected $fillable = ['name','type'];
 
-    // public function user()
+    // public function subcategory()
     // {
-    //     return $this->hasMany('App\User\Models\Product');
+    //     return $this->hasMany('App\User\Models\Category','category_id');
     // }
 }

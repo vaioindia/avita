@@ -30,7 +30,7 @@ Retail Partner
                 <form action="{{ route('service_center.update', $service->id) }}" method="Post" >
                 @csrf
                 <div class="row">
-                    <div class="col-lg-6"> 
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <strong>Latitude</strong>
                             <input type="float" name="latitude" class="form-control" value="{{ $service->latitude}}" placeholder="Latitude">
@@ -78,9 +78,9 @@ Retail Partner
                             <input type="time" name="closing_hour" class="form-control" value="{{ $service->closing_hour}}" placeholder="Closing hour">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>                   
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            </form>  
+            </form>
             </div>
         </div>
     </div>

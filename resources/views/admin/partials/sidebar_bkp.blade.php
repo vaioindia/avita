@@ -1,6 +1,6 @@
 <div class="sidebar">
         <div class="logo text-center" style="background: #c19cdd" >
-          
+
           <img class="navbar-brand" src="{{ asset('images/logo.png') }}">
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper" style="background: #662d91">
@@ -14,19 +14,19 @@
             <li>
               <a href="{{ url('subscribe') }}">
                 <i class="fa fa-home"></i>
-                <p>Subscribe</p> 
+                <p>Subscribe</p>
               </a>
             </li>
             <li>
               <a href="{{ url('brochure') }}">
                 <i class="fa fa-file-pdf-o"></i>
-                <p>Brochure</p> 
+                <p>Brochure</p>
               </a>
             </li>
             <li>
               <a href="{{ url('products') }}">
                 <i class="fa fa-laptop"></i>
-                <p>Product</p> 
+                <p>Product</p>
               </a>
             </li>
             <ul >
@@ -72,8 +72,8 @@
                   <p>Blog</p>
                 </a>
               </li>
-              
-              
+
+
             </ul>
           </div>
         </div>
@@ -100,9 +100,9 @@
               <span class="navbar-toggler-bar navbar-kebab"></span>
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                
+
                 <ul class="navbar-nav">
-                  
+
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="now-ui-icons location_world"></i>
@@ -119,14 +119,14 @@
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                       </form>
-                      
+
                     </div>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="">
                       <i class="now-ui-icons users_single-02"></i>
                       <p>
-                        
+
                       </p>
                     </a>
                   </li>
@@ -136,15 +136,15 @@
           </nav>
           <!-- End Navbar -->
           <div class="panel-header panel-header-sm" style="background: #662d91">
-          
+
           </div>
 
 
           <div class="content">
-            
+
             @yield('content')
-            
+
           </div>
-          
+
         </div>
       </div>

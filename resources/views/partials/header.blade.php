@@ -74,7 +74,7 @@
                 </div>
              </li>
              <li class="nav-item">
-                <a class="nav-link" href="{{ route('news_event')}}">What&#039;s New</a>
+                <a class="nav-link" href="{{ route('news_event')}}">New</a>
              </li>
              <li class="nav-item">
                 <a class="nav-link" href="{{ route('wheretobuy')}}">Where to Buy</a>

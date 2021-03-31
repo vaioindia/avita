@@ -54,11 +54,23 @@ Banner
                                     <input type="text" name="url" class="form-control" placeholder="URL">
                                 </div>
                             </div>
-                            <div  class="col-lg-6">
+                            {{-- <div  class="col-lg-6">
                                 <div class="form-group">
                                     <strong for="">Enabled</strong>
                                     <input type="text" name="enabled" class="form-control" placeholder="Enabled">
                                 </div>
+                            </div> --}}
+                            <div class="col-lg-6">
+                                {{-- <div class="form-group">
+                                    <strong>Condition</strong>
+                                    <input type="" name="is_cond" class="form-control" placeholder="boolean">
+                                </div> --}}<br>
+                                    <div class="form-check form-group">
+                                        <input class="form-check-input" type="checkbox" value="1" name="enabled" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            <strong>Enabled</strong>
+                                        </label>
+                                    </div>
                             </div>
                             <div  class="col-lg-6">
                                 <div class="from-group">

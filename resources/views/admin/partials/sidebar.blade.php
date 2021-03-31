@@ -29,7 +29,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('admin/products') }}">Categorys</a>
+                                    <a class="nav-link" href="{{ url('admin/category') }}">Categorys</a>
                                     <a class="nav-link" href="{{ url('admin/techspecs') }}">Technical  Specification</a>
                                 </nav>
                             </div>

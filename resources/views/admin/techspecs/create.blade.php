@@ -27,15 +27,16 @@ Technical  Specification
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('techspecs.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('techspecs.store') }}" method="post">
                 @csrf
                 <div class="row">
-                    <div class="col-lg-6"> 
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <strong for="">Categorys</strong>
-                            <select name="product_id" class="form-control">
-                                @foreach($products as $product)
-                                <option value="{{$product->id}}">{{$product->type}}</option>
+                            <select name="category" class="form-control"  id="category">
+                                <option value="">--- Select Categorys ---</option>
+                                @foreach ($categorys as $key => $value)
+                                    <option value="{{$key}}">{{$value}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,17 +44,9 @@ Technical  Specification
                     <div class="col-lg-6">
                         <div class="form-group">
                             <strong>Product Name</strong>
-                            <select name="product_id" class="form-control">
-                                @foreach($products as $product)
-                                <option value="{{$product->id}}">{{$product->name}}</option>
-                                @endforeach
+                            <select name="subcategory" class="form-control" id="subcategory">
+
                             </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <strong>Condition</strong>
-                            <input type="" name="is_cond" class="form-control" placeholder="boolean">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -62,21 +55,34 @@ Technical  Specification
                             <input type="test" name="disclaimer" class="form-control" placeholder="Disclaimer">
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        {{-- <div class="form-group">
+                            <strong>Condition</strong>
+                            <input type="" name="is_cond" class="form-control" placeholder="boolean">
+                        </div> --}}<br>
+                            <div class="form-check form-group">
+                                <input class="form-check-input" type="checkbox" value="1" name="is_cond" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    <strong>Disclaimer</strong>
+                                </label>
+                            </div>
+                    </div>
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="crud_table">
+                        <table class="table table-bordered" id="dynamicTable">
                             <tr>
                                 <th width="45%">Specification</th>
                                 <th width="45%">Value</th>
                                 <th width="10%"></th>
                             </tr>
                             <tr>
-                                <td contenteditable="true" class="item_spec"></td>
-                                <td contenteditable="true" class="item_value"></td>
-                                <td></td>
+                                <td><input type="text" name="addmore[0][spec]" placeholder="Enter your spec" class="form-control" /></td>
+                                <td><input type="text" name="addmore[0][value]" placeholder="Enter your value" class="form-control" /></td>
+
+                                <td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>
                             </tr>
                         </table>
                         <div align="right">
-                            <button type="button" name="add" id="editBtn" data-target="#editBtn" class="btn btn-success btn-xs">+</button>
+
                         </div>
                         <div align="center">
                             <button type="submit"  id="save" class="btn btn-info">Save</button>
@@ -84,34 +90,70 @@ Technical  Specification
                         <br />
                         <div id="inserted_item_data"></div>
                     </div>
-                    <!-- <button type="submit" class="btn btn-primary">Submit</button>                    -->
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </div>
-            </form>  
+            </form>
             </div>
         </div>
     </div>
 </main>
 @endsection
 
-@section('js')
-<script>
-$(document).ready(function(){
-    var count - 1;
-    $('#add').click(function(){
-        count = count + 1;
-        var html_code = "<tr id='row"+count+"'>";
-        html_code += "<td contenteditable='true' class='item_spec'></td>";
-        html_code += "<td contenteditable='true' class='item_value'></td>";
-        html_code += "<td> <button type='button' name='remove' data-row='row"+count+"' class='btn btn-danger btn-xs remove'>-</button></td>";
-        hmtl_code += "</tr>";
+@section('scripts')
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-        $('#surd_table').append(html_code);
+<script type="text/javascript">
+
+    var i = 0;
+
+    $("#add").click(function(){
+
+        ++i;
+
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][spec]" placeholder="Enter your Name" class="form-control" /></td><td><input type="text" name="addmore['+i+'][value]" placeholder="Enter your Qty" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">-</button></td></tr>');
     });
-    $(document).on('click', '.remove', function(){
-        var delete_row = $(this).data("row");
-        $('#' + delete_row).remove();
+
+    $(document).on('click', '.remove-tr', function(){
+         $(this).parents('tr').remove();
     });
-});
+
+
+
+
+    $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $(document).ready(function () {
+
+                $('#category').on('change',function(e) {
+
+                 var category_id = e.target.value;
+
+                 $.ajax({
+
+                       url:"",
+                       type:"POST",
+                       data: {
+                        category_id: category_id
+                        },
+
+                       success:function (data) {
+
+                        $('#subcategory').empty();
+
+                        $.each(data.subcategories[0].subcategories,function(index,subcategory){
+
+                            $('#subcategory').append('<option value="'+subcategory.id+'">'+subcategory.name+'</option>');
+                        })
+
+                       }
+                   })
+                });
+
+            });
 </script>
 
 @endsection

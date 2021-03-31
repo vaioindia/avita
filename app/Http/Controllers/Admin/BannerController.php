@@ -25,36 +25,13 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'image' => 'mimes:jpeg,png,jpg,gif,svg,mp4',
-        // ]);
-
-
-
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image')->getClientOriginalName();
-        //     $fileName = $request->image->move('images/banner', $image);
-
-        // }
-
-        // $input['title'] = $request->title;
-        // $input['url'] = $request->url;
-        // $input['date'] = $request->date;
-        // $input['seq'] = $request->seq;
-        // $input['image'] = $fileName;
-
-
-        // Banner::create($input);
-
-        // return redirect()->route('banners.index')
-        //                 ->with('success','Banner created successfully.');
+        
 
         $request->validate([
             'title'    =>  'required',
             'date'     =>  'required',
             'seq'     =>  'required',
-            'enabled'     =>  'required',
+            // 'enabled'     =>  'required',
             'image'         =>  'required|image|max:5000',
             'url'         =>  'required'
         ]);
@@ -93,29 +70,6 @@ class BannerController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'image' => 'mimes:jpeg,png,jpg,gif,svg,mp4',
-        // ]);
-
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image')->getClientOriginalName();
-        //     $fileName = $request->image->move('images/banner', $image);
-
-        // }
-
-        // $input['title'] = $request->title;
-        // $input['url'] = $request->url;
-        // $input['date'] = $request->date;
-        // $input['seq'] = $request->seq;
-        // // $input['image'] = $fileName;
-
-
-
-        // $banner->update($request->all());
-
-        // return redirect()->route('banners.index')
-        //                 ->with('success',' updated successfully');
 
         $image_name = $request->hidden_image;
         $image = $request->file('image');

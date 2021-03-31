@@ -7,8 +7,8 @@
 
 @section('content')
 
-<!-- Content --> 
-<main class="top-nav-padding">
+<!-- Content -->
+<main class="top-nav-padding" style="background-color: #f0f0f0;">
     <div
        class="nav-product-panel">
        <div class="container">
@@ -30,13 +30,13 @@
        </div>
     </div>
     <div class="product-fix-menu">
-       <div class="menu-item">   
+       <div class="menu-item">
           <a href="https://in.nexstmall.com/"
-             target="_blank">BUY<br><small>NOW</small></a>  
+             target="_blank">BUY<br><small>NOW</small></a>
        </div>
        <div class="menu-item">
           <a href="https://avita-india.com/where-to-buy">Where<br><small>to
-          buy</small></a> 
+          buy</small></a>
        </div>
     </div>
     <section class="product-imago-banner">
@@ -47,7 +47,7 @@
                 class="masked-inner"> </div>
           </div>
           <img class="bg-image hidden-md-up w-100"
-             src="{{ asset('assets/images/imago/sc1_01.jpg') }}"> 
+             src="{{ asset('assets/images/imago/sc1_01.jpg') }}">
           <div class="container u-pos-tl u-pos-tr
              mx-auto h-100">
              <div class="d-flex h-100 align-items-center">
@@ -89,7 +89,7 @@
        <div
           class="u-relative">
           <img class="bg-image hidden-md-up w-100"
-             src="{{ asset('assets/images/imago/sc2_01.png') }}"> 
+             src="{{ asset('assets/images/imago/sc2_01.png') }}">
           <div class="mask-wrap hidden-sm-down">
              <div class="masked-inner"> </div>
           </div>
@@ -113,12 +113,12 @@
           <div class="d-flex align-items-center pt-5">
              <img
                 class="sc-image sc-image-01 mr-5 hidden-sm-down"
-                src="{{ asset('assets/images/imago/sc3_01.png') }}"> 
+                src="{{ asset('assets/images/imago/sc3_01.png') }}">
              <div class="u-relative pl-md-5">
                 <div
                    class="d-flex mb-5 align-items-end float-text">
                    <img class="mr-4"
-                      src="{{ asset('assets/images/logo.png') }}"/> 
+                      src="{{ asset('assets/images/logo.png') }}"/>
                    <h3 class="font-weight-bold text-uppercase
                       mb-0">IMAGo</h3>
                 </div>
@@ -140,35 +140,35 @@
           <div class="interface-row row no-gutters my-5 pb-5">
              <div class="col-4 col-md-2 my-4 my-md-0 text-center float-text">
                 <img
-                   class="mb-2" src="{{ asset('assets/images/imago/sc3_02.png') }}"> 
+                   class="mb-2" src="{{ asset('assets/images/imago/sc3_02.png') }}">
                 <div
                    class="interface-value">Weather Forecast</div>
              </div>
              <div class="col-4
                 col-md-2 my-4 my-md-0 text-center float-text">
                 <img class="mb-2"
-                   src="{{ asset('assets/images/imago/sc3_03.png') }}"> 
+                   src="{{ asset('assets/images/imago/sc3_03.png') }}">
                 <div class="interface-value">News
                    Headline
                 </div>
              </div>
              <div class="col-4 col-md-2 my-4 my-md-0 text-center
                 float-text">
-                <img class="mb-2" src="{{ asset('assets/images/imago/sc3_04.png') }}"> 
+                <img class="mb-2" src="{{ asset('assets/images/imago/sc3_04.png') }}">
                 <div
                    class="interface-value">IOT Smart Health Monitoring</div>
              </div>
              <div
                 class="col-4 col-md-2 my-4 my-md-0 text-center float-text">
                 <img class="mb-2"
-                   src="{{ asset('assets/images/imago/sc3_05.png') }}"> 
+                   src="{{ asset('assets/images/imago/sc3_05.png') }}">
                 <div class="interface-value">Movie &amp;
                    Music
                 </div>
              </div>
              <div class="col-4 col-md-2 my-4 my-md-0 text-center
                 float-text">
-                <img class="mb-2" src="{{ asset('assets/images/imago/sc3_06.png') }}"> 
+                <img class="mb-2" src="{{ asset('assets/images/imago/sc3_06.png') }}">
                 <div
                    class="interface-value">Interactive Applications</div>
              </div>
@@ -204,7 +204,7 @@
        class="product-imago-home">
        <div class="u-relative">
           <img class="bg-image
-             hidden-md-up w-100" src="{{ asset('assets/images/imago/sc5_01.png') }}"> 
+             hidden-md-up w-100" src="{{ asset('assets/images/imago/sc5_01.png') }}">
           <div
              class="mask-wrap hidden-sm-down">
              <div class="masked-inner"> </div>
@@ -217,7 +217,7 @@
                    <h2 class="text-uppercase product-title text-right"> <span
                       class="d-md-block text-uppercase title-b-border float-text">Your smart</span>
                       <span class="d-md-block text-uppercase font-weight-bold
-                         float-text">Home</span> 
+                         float-text">Home</span>
                    </h2>
                 </div>
              </div>
@@ -251,7 +251,7 @@
                    <div
                       class="list-item float-text">MPS (mirror play system) and Full HD display
                       ensure perfect image quality when interacting and controlling the mirror with
-                      your fingers 
+                      your fingers
                    </div>
                    <div class="list-item float-text">Android-based
                       platform
@@ -263,10 +263,10 @@
                       justify-content-center">2</span>Sensor &amp; Communication</h6>
                    <div
                       class="list-item float-text">Built-in sensor connected to external devices for
-                      data collection 
+                      data collection
                    </div>
                    <div class="list-item float-text">Built-in Bluetooth
-                      4.0 module 
+                      4.0 module
                    </div>
                    <div class="list-item float-text">Built-in Wi-Fi</div>
                 </div>

@@ -43,16 +43,16 @@ Technical  Specification
                             </tr>
                         </tfoot> -->
                         <tbody>
-                             
+                            @foreach($values as $value)
                             <tr>
                                 <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$value->spec}}</td>
+                                <td>{{$value->value}}</td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <form action="#" method="POST">
-                                            <a href="#">
+                                    <form action="{{ route('techspecs.destroy',$value->id) }}" method="GET">
+                                            <a href="{{ route('techspecs.edit',$value->id) }}">
                                                 <i class="fas fa-edit  fa-lg"></i>
                                             </a>
                                              @csrf
@@ -63,7 +63,7 @@ Technical  Specification
                                     </form>
                                 </td>
                             </tr>
-                            
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -75,5 +75,5 @@ Technical  Specification
 
 
 @section('scripts')
-    
+
 @endsection

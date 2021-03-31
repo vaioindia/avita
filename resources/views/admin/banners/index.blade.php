@@ -30,7 +30,7 @@ Banner
                                 <th>Date</th>
                                 <th>Sequance</th>
                                 <th>URL</th>
-                                <th>Enabled</th>
+                                <th>Status</th>
                                 <th>Images</th>
                                 <th>Action</th>
                             </tr>
@@ -50,7 +50,17 @@ Banner
                                 <td>{{ $banner->date }}</td>
                                 <td>{{ $banner->seq }}</td>
                                 <td>{{ $banner->url }}</td>
-                                <td>{{ $banner->enabled }}</td>
+                                <td><div class="form-check form-group">
+                                   <!-- <input class="form-check-input" type="checkbox" value="{{ $banner->enabled }}" name="enabled" id="defaultCheck1"> --->
+                                   @if($banner->enabled == 1)
+                                        <span>Enabled</span>
+                                        @else
+                                        <span>Disabled</span>
+                                        @endif
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        <strong></strong>
+                                    </label>
+                                </div></td>
                                 <td width="40%">
                                     <img src="{{ URL::to('/') }}/images/banner/{{ $banner->image }}" class="img-thumbnail w-50 h-20"/>
                                     <!-- <img src="{{ asset('/'. $banner->image) }}" alt="{{ $banner->image }}" class="w-50 h-20 "> -->
@@ -76,5 +86,5 @@ Banner
 @endsection
 
 @section('scripts')
-    
+
 @endsection

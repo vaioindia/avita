@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class ExclusiveBrand extends Model
-{   
-    // protected $table = "exclusive_brands";
-    
+{
+    // protected $table = "exclusive_brands";category
+
     protected $fillable = [
         'latitude', 'longitude', 'name','email','address','phone','opening_hour','closing_hour'
        ];

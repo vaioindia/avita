@@ -18,7 +18,7 @@ categorys
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -29,10 +29,10 @@ categorys
         </ul>
     </div>
 @endif
-   
+
 <form action="#" method="GET" enctype="multipart/form-data">
     @csrf
-  
+
             <div class="row">
             <div class=" container">
             <div class="row">
@@ -44,7 +44,7 @@ categorys
                         @endforeach
                     </select>
                 </div>
-                
+
                 <div class="col-md-6">
                     <strong>@lang('Name')</strong>
                     <select name="product_id" class="form-control">
@@ -54,7 +54,7 @@ categorys
                     </select>
                 </div>
                 </div>
-                
+
 
                 <div class="col-md-12 text-center">
                     <br>

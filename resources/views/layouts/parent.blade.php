@@ -13,8 +13,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/globel.css')}}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/globel.css')}}">
-      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
-      <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/animate.css') }}"/>
+      <link rel="stylesheet" type="text/css"  href="{{ asset('assets/css/animate.css') }}"/>
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-liber.css')}}"/>
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/liber-v-gold.css')}}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-magus.css')}}">
@@ -61,7 +60,7 @@
       <script type="text/javascript" src="{{ asset('assets/js/liber-v-gold.js') }}"></script>
       <script type="text/javascript" src="{{ asset('assets/js/liber.js') }}"></script>
       <script type="text/javascript" src="{{ asset('assets/js/magus.js') }}"></script>
-      
+
    </body>
 </html>
 

@@ -21,7 +21,7 @@ Service Center
                 @csrf
                 <div class="form-group">
                 <table class="table">
-                <tr>
+                <tr class="card-header">
                 <td width="40%" align="right"><label>Select File</label></td>
                 <td width="30">
                     <input type="file" name="select_file" />
@@ -31,11 +31,11 @@ Service Center
                     <a class="btn btn-primary" href="{{ route('service_center.export') }}">Export</a>
                 </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                 <td width="40%" align="right"></td>
                 <td width="30"><span class="text-muted">.xls, .xslx</span></td>
                 <td width="30%" align="left"></td>
-                </tr>
+                </tr> --}}
                 </table>
                 </div>
             </form>
@@ -92,7 +92,7 @@ Service Center
                                 <td>{{ $service->closing_hour }}</td>
                                 <td>
                                     <form action="{{ route('service_center.destroy',$service->id) }}" method="GET">
-                                    
+
                                             <a href="{{ route('service_center.edit',$service->id) }}">
                                                 <i class="fas fa-edit  fa-lg"></i>
                                             </a>
@@ -116,5 +116,5 @@ Service Center
 
 
 @section('scripts')
-    
+
 @endsection
