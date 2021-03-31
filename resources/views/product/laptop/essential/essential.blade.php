@@ -9,7 +9,11 @@
 
 <!-- Content -->
 <main class="top-nav-padding" style="background-color: #f0f0f0;">
-    <div class="nav-product-panel">
+
+    @include('partials.essential-product-navbar')
+
+
+    {{-- <div class="nav-product-panel">
        <div class="container">
           <div class="product-nav-toggler h2 text-center my-1 hidden-sm-up">
              <i class="product-nav-icon fa fa-angle-up" aria-hidden="true"></i>
@@ -23,7 +27,9 @@
              </ul>
           </div>
        </div>
-    </div>
+    </div> --}}
+
+
     <section class="product-liber-banner">
        <div class="responsive-block">
           <div class="banner-block responsive-item">

@@ -11,7 +11,9 @@
 
 <main class="top-nav-padding" style="background-color: #f0f0f0;">
 
-   <div class="nav-product-panel">
+    @include('partials.liber-v-gold-product-navbar')
+
+   {{-- <div class="nav-product-panel">
       <div class="container">
          <div class="product-nav-toggler h2 text-center my-1 hidden-sm-up">
             <i class="product-nav-icon fa fa-angle-up" aria-hidden="true"></i>
@@ -25,7 +27,7 @@
             </ul>
          </div>
       </div>
-   </div>
+   </div> --}}
 
    <div class="product-fix-menu-2">
       <div class="menu-item">

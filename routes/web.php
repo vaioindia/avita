@@ -161,6 +161,7 @@
             Route::prefix('smartdevices')->group(function(){
                 Route::get('imago-series-smart-mirror','ProductController@imago_series_smart_mirror')->name('imago-series-smart-mirror');
                 Route::get('modus-smart-scale','ProductController@modus_smart_scale')->name('modus-smart-scale');
+                Route::get('/{slug}/spec', 'ProductController@showProductSpec')->name('product.spec');
             });
             Route::prefix('accessories')->group(function(){
                 Route::get('ubique-mouse','ProductController@ubique_mouse')->name('ubique-mouse');

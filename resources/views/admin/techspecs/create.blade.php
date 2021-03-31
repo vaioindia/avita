@@ -75,7 +75,7 @@ Technical  Specification
                                 <th width="10%"></th>
                             </tr>
                             <tr>
-                                <td><input type="text" name="addmore[0][spec]" placeholder="Enter your spec" class="form-control" /></td>
+                                <td><input type="text" name="addmore[0][spec]" placeholder="Enter your Specification" class="form-control" /></td>
                                 <td><input type="text" name="addmore[0][value]" placeholder="Enter your value" class="form-control" /></td>
 
                                 <td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>
@@ -110,7 +110,7 @@ Technical  Specification
 
         ++i;
 
-        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][spec]" placeholder="Enter your Name" class="form-control" /></td><td><input type="text" name="addmore['+i+'][value]" placeholder="Enter your Qty" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">-</button></td></tr>');
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][spec]" placeholder="Enter your Specification" class="form-control" /></td><td><input type="text" name="addmore['+i+'][value]" placeholder="Enter your Value" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">-</button></td></tr>');
     });
 
     $(document).on('click', '.remove-tr', function(){

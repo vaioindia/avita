@@ -107,5 +107,10 @@ class ProductController extends Controller
             return view('product.laptop.liber.spec');
         }
 
+        if ( $slug == 'imago' )
+        {
+            return view('product.smart-device.spec');
+        }
+
     }
 }
