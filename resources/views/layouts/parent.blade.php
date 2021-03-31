@@ -19,7 +19,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-magus.css')}}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-imago.css')}}">
       @yield('css')
-      <title>@yield('title', 'Avita')</title>
+      <title>AVITA | AVITA India Official Website</title>
 
       <script defer type="text/javascript">
             window.addEventListener('load',
