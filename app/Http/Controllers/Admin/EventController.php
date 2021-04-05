@@ -37,34 +37,11 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        // $fileName ='';
-        // $request->validate([
-        //     'title' => 'required',
-        //     'published_at' => 'required',
-        //     'image' => 'required',
-        //     'desc' => 'required',
-        // ]);
-
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image')->getClientOriginalName();
-        //     $fileName = $request->image->move('images/events', $image);
-
-        // }
-
-        // $input['title'] = $request->title;
-        // $input['published_at'] = $request->published_at;
-        // $input['desc'] = $request->url;
-        // $input['image'] = $fileName;
-
-        // Event::create($request->all());
-
-        // return redirect()->route('event.index')
-        // ->with('success','created successfully.');
 
         $request->validate([
             'title'    =>  'required',
             'published_at'     =>  'required',
-            'image'         =>  'required|image|max:5000',
+            'image'         =>  'required|image|max:7000',
             'desc'         =>  'required'
         ]);
 
@@ -149,7 +126,7 @@ class EventController extends Controller
                 'title'    =>  'required',
                 'published_at'     =>  'required',
                 'desc'     =>  'required',
-                'image'         =>  'image|max:5000'
+                'image'         =>  'image|max:7000'
             ]);
 
             $image_name = rand() . '.' . $image->getClientOriginalExtension();

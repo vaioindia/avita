@@ -10,5 +10,5 @@ class Whatnew extends Model
     protected $table = 'whatnews';
 
 
-    protected $fillable = ['title','published_at','image','url'];
+    protected $fillable = ['title','published_at','published','image','url'];
 }

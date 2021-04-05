@@ -6,8 +6,9 @@ use App\Imports\ExclusiveBrandimport;
 use App\Exports\ExclusiveBrandExport;
 use App\Models\ExclusiveBrand;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
-use Excel;
+
 
 
 class ExclusiveBrandController extends Controller
@@ -37,7 +38,7 @@ class ExclusiveBrandController extends Controller
 
     public function importform()
     {
-        $exclusivebrands = ExclusiveBrand::latest()->paginate(5);
+        $exclusivebrands = ExclusiveBrand::all();
         return view('admin.exclusivebrand.index');
     }
 
@@ -61,7 +62,7 @@ class ExclusiveBrandController extends Controller
 
     public function export()
     {
-        return Excel::download(new ExclusiveBrandExport, 'exclusivebrand.xlsx');
+        return Excel::download(new ExclusiveBrandExport, 'exclusivebrand.');
     }
 
 

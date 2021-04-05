@@ -29,7 +29,7 @@ New And Event
                                 <!-- <th>No</th> -->
                                 <th>Title</th>
                                 <th>Date</th>
-                                <th>desc</th>
+                                <th>Description</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -50,9 +50,7 @@ New And Event
                                 <td>{{ $event->published_at }}</td>
                                 <td>{{ $event->desc }}</td>
                                 <td width="40%">
-                                    <img src="{{ URL::to('/') }}/images/events/{{ $event->image }}" class="img-thumbnail w-50 h-20"/>
-                                    <!-- <img src="{{ asset('/'. $event->image)  }}"class="w-50 h-20 "alt="{{ $event->image }}"> -->
-                                    <!-- <img src="{{ asset('/'. $event->image) }}" alt="{{ $event->image }}" class="w-50 h-20 "> -->
+                                    <img src="{{ URL::to('/') }}/images/events/{{ $event->image }}" class="img-thumbnail w-100 h-20"/>
                                 </td>
                                 <td>
                                     <form action="{{ route('event.destroy',$event->id) }}" method="GET" class="d-inline">

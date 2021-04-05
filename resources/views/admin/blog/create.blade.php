@@ -44,6 +44,12 @@ Blog
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
+                                <strong for="">Short Description</strong>
+                                <input type="text" name="short_desc" class="form-control" placeholder="Short Description">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
                                 <strong for="">Description</strong>
                                 <input type="text" name="desc" class="form-control" placeholder="Description">
                             </div>
@@ -58,11 +64,11 @@ Blog
                             <div class="form-group">
                                 <strong for="">Image</strong>
                                 <input type="file" name="image" class="form-control img-responsive" placeholder="Image">
+                                <strong>Size 330 × 173 px (intrinsic: 1024 × 536 px)</strong>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
             </div>
         </div>

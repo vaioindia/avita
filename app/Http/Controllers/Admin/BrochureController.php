@@ -16,9 +16,8 @@ class BrochureController extends Controller
     public function index()
     {
 
-        $brochures = Brochure::latest()->paginate(5);
-        return view('admin.brochure.index', compact('brochures'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $brochures = Brochure::all();
+        return view('admin.brochure.index', compact('brochures'));
     }
 
     /**
@@ -49,7 +48,7 @@ class BrochureController extends Controller
 
         $request->validate([
 
-            'reference.*' => 'required|mimes:doc,docx,pdf,ppt,pptx,csv',
+            'reference.*' => 'required|mimes:doc,docx,pdf',
         ]);
 
 
@@ -65,8 +64,7 @@ class BrochureController extends Controller
 
         Brochure::create($input);
 
-        return redirect()->route('brochure.index')
-                        ->with('success','created successfully.');
+        return redirect()->route('brochure.index')->with('success','created successfully.');
     }
 
     /**

@@ -7,7 +7,7 @@ use App\Exports\RetailPartnerExport;
 use App\Models\RetailPartner;
 use Illuminate\Http\Request;
 use DB;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RetailPartnerController extends Controller
 {
@@ -30,13 +30,13 @@ class RetailPartnerController extends Controller
 
     public function importform()
     {
-        $retailpartners = RetailPartner::latest()->paginate(5);
+        $retailpartners = RetailPartner::all();
         return view('admin.retailpartner.index');
     }
 
     public function export()
     {
-        return Excel::download(new RetailPartnerExport, 'retailpartner.xlsx');
+        return Excel::download(new RetailPartnerExport, 'retailpartner.csv');
     }
 
     public function import(Request $request)

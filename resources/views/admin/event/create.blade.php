@@ -52,6 +52,8 @@ Event
                             <div class="form-group">
                                 <strong for="">Image</strong>
                                 <input type="file" name="image" class="form-control img-responsive" placeholder="Image">
+                                <strong>Size 330 × 186 px (intrinsic: 800 × 450 px)</strong>
+
                             </div>
                         </div>
 

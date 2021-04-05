@@ -21,6 +21,7 @@ Blog
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Short Description</th>
                                 <th>Date</th>
                                 <th>Image</th>
                                 <th>Action</th>
@@ -39,10 +40,10 @@ Blog
                             <tr>
                                 <td>{{ $blog->title }}</td>
                                 <td >{{ $blog->desc }}</td>
+                                <td >{{ $blog->short_desc }}</td>
                                 <td>{{ $blog->published_at }}</td>
                                 <td width="40%">
-                                    <img src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" class="img-thumbnail w-50 h-20"/>
-                                    <!-- <img src="{{ asset('/'. $blog->image) }}" alt="{{ $blog->title }}" class="w-50 h-20 "> -->
+                                    <img src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" class="img-thumbnail w-100 h-20"/>
                                 </td>
                                 <td>
                                     <form action="{{ route('blog.destroy',$blog->id) }}" method="GET" class="d-inline">

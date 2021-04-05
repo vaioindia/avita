@@ -59,5 +59,5 @@ Brochure
 
 
 @section('scripts')
-    
+
 @endsection

@@ -1,0 +1,11 @@
+Latitude,Longitude,Name,Email,Phone,Address,Opening hour,Closing hour,,
+25.1700494,75.8256279,MAGNUM Computers,amit.dogra@f1infoservices.com,-9940611192,"189, Venkatachalam St, Jagadambal colony, Rangaiah Garden, Royapettah, CHENNAI-600004",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+30.7385757,76.7725538,Sun Tronix,rajkumar.s@f1infoservices.com,-9940611192,"NP Complex, D Block, Annanagar East, Chennai, Tamil Nadu 600102, CHENNAI-600102",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+28.5485192,77.2504104,ASKI,dharmendra.sharma@f1infoservices.com,-9840094371,"41/1, 11th Ave, 11th Avenue, Indira Colony, Ashok Nagar, CHENNAI-600083",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+28.4827371,77.0935492,The Chennai Mobile,Jagdish.Sharma@f1infoservices.com,-9840068908,"Jaya Nagar, Porur, Chennai, Tamil Nadu 600116, CHENNAI-600116",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+28.6643804,77.431936,The Chennai Mobile,rahul.kumar@f1infoservices.com,-24890754," 80, Arcot Rd, Sathya Garden, Kodambakkam, CHENNAI-600124",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+26.911973,75.7950449,The Chennai Mobile,vivek.srivastava@f1infoservices.com,-9841749993,"Rama Kamath Puram, T Nagar, CHENNAI-600017",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+32.6944384,74.8582883,The Chennai Mobile,rajnish.chauhan@f1infoservices.com,-9841749993,"MARKRT CITY MALL Velachery, CHENNAI-600042",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+26.4730891,80.3379451,The Chennai Mobile,lko_service@f1infoservices.com,-9841749993,"90, 3rd Ave, J Block, Anna Nagar, CHENNAI-600102",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+29.6898302,76.9930353,Sugan Computer, virender.dhiman@f1infoservices.com,-9841749993,"2nd Ave, A Block, Annanagar East, CHENNAI-600030",09:30:00,06:30:00,2021-04-01T10:15:46.000000Z,2021-04-01T10:15:46.00
+,,,,,,,,,

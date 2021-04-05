@@ -61,21 +61,37 @@ Banner
                                 </div>
                             </div> --}}
                             <div class="col-lg-6">
-                                {{-- <div class="form-group">
-                                    <strong>Condition</strong>
-                                    <input type="" name="is_cond" class="form-control" placeholder="boolean">
-                                </div> --}}<br>
+                                {{-- <br>
                                     <div class="form-check form-group">
                                         <input class="form-check-input" type="checkbox" value="1" name="enabled" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
                                             <strong>Enabled</strong>
                                         </label>
-                                    </div>
+                                    </div> --}}
+                                    {{-- <div class="form-group">
+                                        <strong for="">Status</strong><br>
+                                        <input type="checkbox" name="enabled" checked data-toggle="toggle" data-on="Enabled" data-off="Disabled" data-onstyle="success" data-offstyle="danger">
+                                    </div> --}}
+                                    <strong for="">Status</strong>
+                                    <select name="status" class="form-control">
+                                    <option value="">--- Select Status ---</option>
+                                    {{-- @foreach ($categorys as $key => $value) --}}
+                                        <option value="enabled">Enabled</option>
+                                        <option value="disabled">Disabled</option>
+                                    {{-- @endforeach --}}
+                                </select>
                             </div>
                             <div  class="col-lg-6">
                                 <div class="from-group">
-                                    <strong>Image</strong>
-                                    <input type="file" name="image" class="form-control img-responsive" placeholder="URL">
+                                    <strong>Web Image</strong>
+                                    <input type="file" name="web_image" class="form-control img-responsive" placeholder="URL">
+                                </div>
+                            </div>
+
+                            <div  class="col-lg-6">
+                                <div class="from-group">
+                                    <strong>Mob Image</strong>
+                                    <input type="file" name="mob_image" class="form-control img-responsive" placeholder="URL">
                                 </div>
                             </div>
                         </div>

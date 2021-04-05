@@ -15,7 +15,7 @@ class SubscribeController extends Controller
         $this->validate($request, [
                         'email' => 'required|email'
                 ]);
- 
+
         Mail::send('email', [
                 'email' => $request->get('email'), ],
                 function ($message) {

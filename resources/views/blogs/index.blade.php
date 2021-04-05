@@ -28,104 +28,36 @@
 
             </div>
             <div class="row" >
+                @foreach($blogs as $blog)
                 <div class="col-sm-6 col-md-6">
                     <div class="post-item">
                         <div class="post-image">
-                            <img class="img-thumbnail" src="{{ asset('blog\AVITA-breaks-down-the-Most-Creative-Career-Choices-students-make-today.png') }}" width="600" height="400" alt="" >
+                            <img class="img-thumbnail" src="{{ URL::to('/') }}/images/blog/{{ $blog->image }}" width="600" height="400" alt="{{ $blog->image }}" >
                         </div>
                         <h2 class="post-title">
-                            <a href="blog-single.html">Sample Blog Post</a>
+                            <a href="blog-single.html">{{ $blog->title }}</a>
                         </h2>
-                        <div class="post-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="post-content">{{ $blog->short_desc }}</div>
                         <div class="post-meta">
                         <!-- Author  -->
                         <span class="author">
-                        <i class="fa fa-user"></i> John Deo</span>
+                        <i class="fa fa-user"></i> Published</span>
                         <!-- Meta Date -->
 
-                        <span class="time">
-                        <i class="fa fa-calendar"></i> 03.11.2014</span>
+                        <span class="time pull-right">
+                        <i class="fa fa-calendar"></i>{{ $blog->published_at }}</span>
                         <!-- Category -->
 
-                        <span class="category pull-right">
-                        <i class="fa fa-heart"></i> Travel, Nature, Business</span></div>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="col-sm-6 col-md-6">
-                    <div class="post-item">
-                        <div class="post-image">
-                            <img class="img-thumbnail" src="{{ asset('blog\Avita-Liber-Technology-to-keep-YOU-high-on-Fashion.png') }}" width="600" height="400" alt="" title="" />
-                        </div>
-                        <h2 class="post-title">
-                            <a href="blog-single.html">Sample Blog Post</a>
-                        </h2>
-                        <div class="post-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                        <div class="post-meta">
-                        <!-- Author  -->
-                        <span class="author">
-                        <i class="fa fa-user"></i> John Deo</span>
-                        <!-- Meta Date -->
-
-                        <span class="time">
-                        <i class="fa fa-calendar"></i> 03.11.2014</span>
-                        <!-- Category -->
-
-                        <span class="category pull-right">
-                        <i class="fa fa-heart"></i> Travel, Nature, Business</span></div>
-                    </div>
-                </div>
-                <!-- post -->
-
-                <div class="col-sm-6 col-md-6">
-                    <div class="post-item">
-                        <div class="post-image">
-                            <img class="img-thumbnail" src="{{ asset('blog\AVITA-Magus–8-Wonderful-Benefits-of-a-2-in-1-Laptops.png') }}" width="600" height="400" alt="" >
-                        </div>
-                        <h2 class="post-title">
-                            <a href="blog-single.html">Sample Blog Post</a>
-                        </h2>
-                        <div class="post-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                        <div class="post-meta">
-                        <!-- Author  -->
-                        <span class="author">
-                        <i class="fa fa-user"></i> John Deo</span>
-                        <!-- Meta Date -->
-
-                        <span class="time">
-                        <i class="fa fa-calendar"></i> 03.11.2014</span>
-                        <!-- Category -->
-
-                        <span class="category pull-right">
-                        <i class="fa fa-heart"></i> Travel, Nature, Business</span></div>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="col-sm-6 col-md-6">
-                    <div class="post-item">
-                        <div class="post-image">
-                            <img class="img-thumbnail" src="{{ asset('blog\AVITAs-Guide-to-Buying-the-Perfect-Student-Laptop.png') }}" width="600" height="400" alt="" title="" />
-                        </div>
-                        <h2 class="post-title">
-                            <a href="blog-single.html">Sample Blog Post</a>
-                        </h2>
-                        <div class="post-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                        <div class="post-meta">
-                        <!-- Author  -->
-                        <span class="author">
-                        <i class="fa fa-user"></i> John Deo</span>
-                        <!-- Meta Date -->
-
-                        <span class="time">
-                        <i class="fa fa-calendar"></i> 03.11.2014</span>
-                        <!-- Category -->
-
-                        <span class="category pull-right">
-                        <i class="fa fa-heart"></i> Travel, Nature, Business</span></div>
+                        {{-- <span class="category pull-right">
+                        <i class="fa fa-heart"></i> Travel, Nature, Business</span></div> --}}
                     </div>
                 </div>
                 <!-- post -->
             </div>
+            @endforeach
+
+
+
             <div class="row">
                 {{-- <div class="col-md-12">
                     <nav class="navbar-right">

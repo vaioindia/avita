@@ -14,6 +14,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-imago.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/globel.css') }}">
+      @yield('css')
       {{-- <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/liber-v-gold.css') }}"> --}}
       {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-liber.css') }}"> --}}
       {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/product-magus.css') }}"> --}}
@@ -47,7 +48,7 @@
 
 <!-- newsletter subscription  -->
 
-@include('partials.newsletter')
+
 <!-- newsletter subscription  -->
 
 <!-- Footer -->

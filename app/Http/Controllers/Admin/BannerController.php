@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BannerController extends Controller
 {
@@ -17,6 +18,17 @@ class BannerController extends Controller
         return view('admin.banners.index', compact('banners'));
     }
 
+    public function status(Request $request)
+    {
+        if($request->mode=='true'){
+            DB::table('banners')->where('id',$request->id)->update(['status'=>'enabled']);
+        }
+        else{
+            DB::table('banners')->where('id',$request->id)->update(['status'=>'disabled']);
+
+        }
+        return response()->json(['msg'=>'Successfully update Status','status'=>true]);
+    }
 
     public function create()
     {
@@ -25,28 +37,32 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        
-
         $request->validate([
             'title'    =>  'required',
             'date'     =>  'required',
             'seq'     =>  'required',
-            // 'enabled'     =>  'required',
-            'image'         =>  'required|image|max:5000',
+            // 'status'     =>  'required',
+            'mob_image'         =>  'required|image|max:5000',
+            'web_image'         =>  'required|image|max:5000',
             'url'         =>  'required'
         ]);
 
-        $image = $request->file('image');
+        $web_image = $request->file('web_image');
+        $mob_image = $request->file('mob_image');
 
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images/banner'), $new_name);
+        $new_name = rand() . '.' . $web_image->getClientOriginalExtension();
+        $new_name1 = rand() . '.' . $mob_image->getClientOriginalExtension();
+        $web_image->move(public_path('images/banner'), $new_name);
+        $mob_image->move(public_path('images/banner'), $new_name1);
         $form_data = array(
             'title'       =>   $request->title,
             'date'        =>   $request->date,
             'seq'        =>   $request->seq,
-            'enabled'        =>   $request->enabled,
+            'status'        =>   $request->status,
             'url'        =>   $request->url,
-            'image'            =>   $new_name
+            'web_image'            =>   $new_name,
+            'mob_image'            =>   $new_name1,
+
         );
 
         Banner::create($form_data);
@@ -72,20 +88,25 @@ class BannerController extends Controller
     {
 
         $image_name = $request->hidden_image;
-        $image = $request->file('image');
-        if($image != '')
+        $image_name1 = $request->hidden_image;
+        $web_image = $request->file('web_image');
+        $mob_image = $request->file('mob_image');
+        if($web_image != '' || $mob_image != '')
         {
             $request->validate([
                 'title'    =>  'required',
                 'date'     =>  'required',
                 'seq'     =>  'required',
-                'enabled'     =>  'required',
-                'image'         =>  'required|image|max:5000',
+                'status'     =>  'required',
+                'web_image'         =>  'required|image|max:5000',
+                'mob_image'         =>  'required|image|max:5000',
                 'url'         =>  'required'
             ]);
 
-            $image_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images/banner'), $image_name);
+            $image_name = rand() . '.' . $web_image->getClientOriginalExtension();
+            $image_name1 = rand() . '.' . $mob_image->getClientOriginalExtension();
+            $web_image->move(public_path('images/banner'), $image_name);
+            $mob_image->move(public_path('images/banner'), $image_name1);
         }
         else
         {
@@ -93,7 +114,7 @@ class BannerController extends Controller
                 'title'    =>  'required',
                 'date'     =>  'required',
                 'seq'     =>  'required',
-                'enabled'     =>  'required',
+                'status'     =>  'required',
                 'url'     =>  'required',
             ]);
         }
@@ -102,9 +123,10 @@ class BannerController extends Controller
             'title'       =>   $request->title,
             'date'        =>   $request->date,
             'seq'        =>   $request->seq,
-            'enabled'        =>   $request->enabled,
+            'status'        =>   $request->status,
             'url'        =>   $request->url,
-            'image'            =>   $image_name
+            'web_image'            =>   $image_name,
+            'mob_image'            =>   $image_name1,
         );
 
         Banner::whereId($id)->update($form_data);

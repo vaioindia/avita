@@ -10,13 +10,14 @@ class CreateWhatnewsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     * 
+     *
      */
     public function up()
     {
         Schema::create('whatnews', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('published');
             $table->date('published_at')->nullable();
             $table->string('image');
             $table->string('url', 1000)->nullable();

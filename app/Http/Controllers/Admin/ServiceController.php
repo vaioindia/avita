@@ -7,7 +7,7 @@ use App\Exports\ServiceExport;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use DB;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ServiceController extends Controller
 {
@@ -30,13 +30,13 @@ class ServiceController extends Controller
 
     public function importform()
     {
-        $services = Service::latest()->paginate(5);
+        $services = Service::all();
         return view('admin.exclusivebrand.index');
     }
 
     public function export()
     {
-        return Excel::download(new ServiceExport, 'service.xlsx');
+        return Excel::download(new ServiceExport, 'service.csv');
     }
 
     public function import(Request $request)

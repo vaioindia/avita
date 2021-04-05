@@ -68,8 +68,13 @@
                             <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
 
                             <a class="nav-link" href="{{ url('admin/banners') }}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-picture-o"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-fw fa-images"></i></div>
                                 Banners
+                            </a>
+
+                            <a class="nav-link" href="{{ url('admin/grid') }}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-fw fa-images"></i></div>
+                                Grid UI
                             </a>
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">

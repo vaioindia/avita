@@ -30,6 +30,7 @@ New And Event
                                 <th>Title</th>
                                 <th>Date</th>
                                 <th>Url</th>
+                                <th>Publications</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -49,9 +50,9 @@ New And Event
                                 <td>{{ $whatnew->title }}</td>
                                 <td>{{ $whatnew->published_at }}</td>
                                 <td>{{ $whatnew->url }}</td>
-                                <td width="50%"><img src="{{ URL::to('/') }}/images/news/{{ $whatnew->image }}" class="img-thumbnail w-50 h-20"/>
-                                    <!-- <img src="{{ asset('/'. $whatnew->image)  }}"class="w-50 h-20 "alt="{{ $whatnew->image }}"> -->
-                                    <!-- <img src="{{ asset('/'. $whatnew->image) }}" alt="{{ $whatnew->image }}" class="w-50 h-20 "> -->
+                                <td>{{ $whatnew->published }}</td>
+                                <td width="50%">
+                                    <img src="{{ URL::to('/') }}/images/news/{{ $whatnew->image }}" class="img-thumbnail w-100 h-20"/>
                                 </td>
                                 <td>
                                     <form action="{{ route('whatnew.destroy',$whatnew->id) }}" method="GET" class="d-inline">
@@ -74,5 +75,5 @@ New And Event
 @endsection
 
 @section('scripts')
-    
+
 @endsection

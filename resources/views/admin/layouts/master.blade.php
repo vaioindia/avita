@@ -13,6 +13,7 @@
         @yield('css')
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
         <!-- CDN LINK CSS & BOOTSTRAP 4 -->
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
         <!-- FONTAWESOME CDN LINK -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
@@ -43,10 +44,11 @@
 
         </div>
         <!--   Core JS Files   -->
-        @yield('scripts')
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+        @yield('scripts')
         <script type="text/javascript" defer src="{{ asset('js/scripts.js') }}"></script>
         <!-- <script type="text/javascript" defer src="{{ asset('assets/demo/Chart.min.js') }}"></script> -->
         <!-- <script type="text/javascript" defer src="{{ asset('assets/demo/chart-area-demo.js') }}"></script> -->

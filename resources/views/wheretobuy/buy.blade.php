@@ -19,18 +19,22 @@
        <hr class="w-25"/>
        <div class="container py-5 ls-0">
           <div class="shopsList row">
+            @foreach($exclusivebrands as $exclusivebrand)
              <div class="col-md-6">
-                <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
+                <div class="pb-4" style="font-size: 1.5rem;"><strong>{{ $exclusivebrand->name }}</strong></div>
+
                 <div class="">
                    <i class="fa fa-map icon"></i>
-                   5, Tarun enclave, Pitampura, New Delhi - 110034
+                   {{ $exclusivebrand->address }}
                 </div>
                 <div class="">
                    <i class="fa fa-phone icon"></i>
-                   +91-9811050767
+                   {{ $exclusivebrand->phone }}
                 </div>
+                <br>
              </div>
-             <div class="col-md-6">
+             @endforeach
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -40,8 +44,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9818010043
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -51,8 +56,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9999103553
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -62,8 +68,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9811274022
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -73,8 +80,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9810274529
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -85,8 +93,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9780712345
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>AVITA Exclusive Store</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -97,25 +106,32 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9828103338
                 </div>
-             </div>
+             </div> --}}
+
           </div>
        </div>
        <div class="h2 pt-5 px-5 text-center font-weight-light">Retail Partners</div>
        <hr class="w-25"/>
        <div class="container py-5 ls-0">
-          <div class="shopsList row">
+            <div class="shopsList row">
+            @foreach ($retailpartners as $retailpartner)
              <div class="col-md-6">
-                <div class="pb-4"><strong>MAGNUM Computers</strong></div>
+                <div class="pb-4" style="font-size: 1.5rem;"><strong>{{ $retailpartner->name }}</strong></div>
+
                 <div class="">
                    <i class="fa fa-map icon"></i>
-                   189, Venkatachalam St, Jagadambal colony, Rangaiah Garden, Royapettah, CHENNAI-600004
+                   {{ $retailpartner->address }}
                 </div>
                 <div class="">
                    <i class="fa fa-phone icon"></i>
-                   +91-9840094462
+                   {{ $retailpartner->phone }}
+                   <br>
+                   <br>
                 </div>
              </div>
-             <div class="col-md-6">
+             @endforeach
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>Sun Tronix</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -125,8 +141,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9840068999
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>ASKI</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -136,8 +153,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-44-24890801
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>The Chennai Mobile</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -147,8 +165,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9841750084
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>The Chennai Mobile</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -158,8 +177,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9841750084
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>The Chennai Mobile</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -169,8 +189,9 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9841750084
                 </div>
-             </div>
-             <div class="col-md-6">
+             </div> --}}
+
+             {{-- <div class="col-md-6">
                 <div class="pb-4"><strong>The Chennai Mobile</strong></div>
                 <div class="">
                    <i class="fa fa-map icon"></i>
@@ -180,19 +201,21 @@
                    <i class="fa fa-phone icon"></i>
                    +91-9841750084
                 </div>
-             </div>
-             <div class="col-md-6">
-                <div class="pb-4"><strong>The Chennai Mobile</strong></div>
-                <div class="">
-                   <i class="fa fa-map icon"></i>
-                   90, 3rd Ave, J Block, Anna Nagar, CHENNAI-600102
-                </div>
-                <div class="">
-                   <i class="fa fa-phone icon"></i>
-                   +91-9841750084
-                </div>
-             </div>
-             </div>
+             </div> --}}
+
+             {{-- <div class="col-md-6">
+                    <div class="pb-4"><strong>The Chennai Mobile</strong></div>
+                    <div class="">
+                    <i class="fa fa-map icon"></i>
+                    90, 3rd Ave, J Block, Anna Nagar, CHENNAI-600102
+                    </div>
+                    <div class="">
+                    <i class="fa fa-phone icon"></i>
+                    +91-9841750084
+                    </div>
+             </div> --}}
+
+            </div>
           </div>
        </div>
     </section>

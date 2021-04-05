@@ -31,7 +31,8 @@ Banner
                                 <th>Sequance</th>
                                 <th>URL</th>
                                 <th>Status</th>
-                                <th>Images</th>
+                                <th>Web Banner Images</th>
+                                <th>Mob Banner Images</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -50,20 +51,14 @@ Banner
                                 <td>{{ $banner->date }}</td>
                                 <td>{{ $banner->seq }}</td>
                                 <td>{{ $banner->url }}</td>
-                                <td><div class="form-check form-group">
-                                   <!-- <input class="form-check-input" type="checkbox" value="{{ $banner->enabled }}" name="enabled" id="defaultCheck1"> --->
-                                   @if($banner->enabled == 1)
-                                        <span>Enabled</span>
-                                        @else
-                                        <span>Disabled</span>
-                                        @endif
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        <strong></strong>
-                                    </label>
-                                </div></td>
+                                <td>
+                                    <input type="checkbox" name="toogle" value="{{ $banner->id}}" data-toggle="toggle" {{$banner->status=='enabled' ? 'checked' : ''}}  data-on="Enabled" data-off="Disabled" data-onstyle="primary" data-size="sm" data-offstyle="secondary">
+                                </td>
                                 <td width="40%">
-                                    <img src="{{ URL::to('/') }}/images/banner/{{ $banner->image }}" class="img-thumbnail w-50 h-20"/>
-                                    <!-- <img src="{{ asset('/'. $banner->image) }}" alt="{{ $banner->image }}" class="w-50 h-20 "> -->
+                                    <img src="{{ URL::to('/') }}/images/banner/{{ $banner->web_image }}" alt="{{ $banner->web_image }}" class="img-thumbnail w-100 h-40"/>
+                                </td>
+                                <td width="40%">
+                                    <img src="{{ URL::to('/') }}/images/banner/{{ $banner->mob_image }}" alt="{{ $banner->mob_image }}" class="img-thumbnail w-50 h-20"/>
                                 </td>
                                 <td>
                                     <form action="{{ route('banners.destroy',$banner->id) }}" method="GET" class="d-inline">
@@ -86,5 +81,25 @@ Banner
 @endsection
 
 @section('scripts')
+<script>
+    $('input[name=toogle]').change(function (){
+        var mode=$(this).prop('checked');
+        var id=$(this).val();
+        // alert (id);
+        $,ajax({
+            url:"{{ route('banners.status')}}",
+            type:"POST",
+            data:{
+                token:'{{ csrf_token() }}',
+                mode:mode,
+                id:id,
+            },
+            success:function(response) {
+                console.log(response.status);
+                // alert(response.status);
 
+            }
+        })
+    });
+</script>
 @endsection

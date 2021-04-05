@@ -17,5 +17,22 @@
           </div>
        </div>
     </form>
-    <p class="download-brochure" ><a href="/images/AVITA-Products-Brochure.pdf" target="_blank" download="AVITA-Family-Brochure.pdf"><button class="btn btn-primary btn-lg " type="button">Download Brochure</button></a></p>
+    <p class="download-brochure" >
+        <a href="/images/AVITA-Products-Brochure.pdf" target="_blank" download="AVITA-Family-Brochure.pdf">
+            <button class="btn btn-primary btn-lg " type="button">
+                Download Brochure
+            </button>
+        </a>
+    </p>
+
+    {{-- <p class="download-brochure" >
+        @foreach ($brochures as $brochure)
+        <a href="{{ url('brochures/'. $brochure->reference)  }}" target="_blank" download="{{ $brochure->reference }}">
+            <button class="btn btn-primary btn-lg " type="button">
+                Download Brochure
+            </button>
+        </a>
+        @endforeach
+    </p> --}}
+
  </section>

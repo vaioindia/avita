@@ -13,8 +13,8 @@ class BlogController extends Controller
      */
     public function showBlog()
     {
-        $blogs = Blog::latest()->orderBy('id', 'asc')->get();
-
+        // $blogs = Blog::latest()->orderBy('id', 'desc')->get();
+        $blogs = Blog::all();
             return view('blogs.index', compact('blogs'));
     }
 
@@ -26,6 +26,6 @@ class BlogController extends Controller
     public function showBlogDetail($slug)
     {
         $blog = Blog::where('id', $slug)->get()->first();
-        return view('blogs.detail', compact('blog','country'));
+        return view('blogs.detail', compact('blog'));
     }
 }

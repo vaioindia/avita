@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-Dashboard 
+Dashboard
 @endsection
 
 @section('content')
@@ -14,37 +14,60 @@ Dashboard
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Primary Card</div>
+                    <div class="card-body large">News</div>
+                    <div class="row">
+                        <div class=" col-md-6"><i class="text-white ml-4 fa-3x fas fa-bell"></i></div>
+                        <div class=" col-md-6"><h3 class="fa-3x text-white text-right mr-4">{{$count1}}</h3></div>
+                    </div>
+
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        <a class="small text-white stretched-link" href="{{ url('admin/whatnew') }}">View Details</a>
+                        {{-- <div class="large text-white"><i class="fas fa-bell"></i></div> --}}
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">Warning Card</div>
+                    <div class="card-body">Service Center</div>
+                    <div class="row">
+                        <div class=" col-md-6"><i class="text-white ml-4 fa-3x fas fa-tools"></i></div>
+                        <div class=" col-md-6"><h3 class="fa-3x text-white text-right mr-4">{{$count2}}</h3></div>
+                    </div>
+
+                    {{-- <div class="text-white text-right mr-3">{{$count2}}</div> --}}
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        <a class="small text-white stretched-link" href="{{ url('admin/service_center') }}">View Details</a>
+                        {{-- <div class="large text-white"><i class="fas fa-tools"></i></div> --}}
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-success text-white mb-4">
-                    <div class="card-body">Success Card</div>
+                    <div class="card-body">Exclusive Brand Store</div>
+                    <div class="row">
+                        <div class=" col-md-6"><i class="text-white ml-4 fa-3x fas fa-store"></i></div>
+                        <div class=" col-md-6"><h3 class="fa-3x text-white text-right mr-4">{{$count3}}</h3></div>
+                    </div>
+
+                    {{-- <div class="text-white text-right mr-3">{{$count3}}</div> --}}
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        <a class="small text-white stretched-link" href="{{ url('admin/exclusivebrand') }}">View Details</a>
+                        {{-- <div class="large text-white"><i class="fas fa-store"></i></div> --}}
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Danger Card</div>
+                    <div class="card-body">Retail Store </div>
+                    <div class="row">
+                        <div class=" col-md-6"><i class="text-white ml-4 fa-3x fas fa-store"></i></div>
+                        <div class=" col-md-6"><h3 class="fa-3x text-white text-right mr-4">{{$count4}}</h3></div>
+                    </div>
+
+                    {{-- <div class="text-white text-right mr-3">{{$count4}}</div> --}}
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        <a class="small text-white stretched-link" href="{{ url('admin/retailpartner') }}">View Details</a>
+                        {{-- <div class="text-white"><i class="fas fa-store"></i></div> --}}
                     </div>
                 </div>
             </div>
@@ -56,7 +79,7 @@ Dashboard
                         <i class="fas fa-chart-area mr-1"></i>
                         Area Chart Example
                     </div>
-                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="50"></canvas></div>
                 </div>
             </div>
             <div class="col-xl-6">
@@ -65,14 +88,14 @@ Dashboard
                         <i class="fas fa-chart-bar mr-1"></i>
                         Bar Chart Example
                     </div>
-                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
                 </div>
             </div>
         </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table mr-1"></i>
-                DataTable Example
+                User Details
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -80,11 +103,11 @@ Dashboard
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Status</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                                {{-- <th>Start date</th>
+                                <th>Salary</th> --}}
                             </tr>
                         </thead>
                         <!-- <tfoot>
@@ -98,38 +121,25 @@ Dashboard
                             </tr>
                         </tfoot> -->
                         <tbody>
+                            @foreach($users as $user)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                {{-- <td>{{ Auth::user()->name }}</td>
+                                <td>{{ Auth::user()->is_admin }}</td>
+                                <td>{{ Auth::user()->email }}</td> --}}
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->is_admin }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    <form action="" method="GET" class="d-inline">
+                                        <a href="" class=""><i class="fas fa-edit  fa-lg"></i></a>
+                                        {{ csrf_field() }}
+                                        @method('DELETE')
+                                        <button class="" type="submit" style="border: none; background-color:transparent;">
+                                        <i class="fas fa-trash fa-lg text-danger"></i></button>
+                                    </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -146,6 +156,6 @@ Dashboard
 
 <script type="text/javascript" defer src="{{ asset('assets/demo/Chart.min.js') }}"></script>
 <script type="text/javascript" defer src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
-<script type="text/javascript" defer src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script> 
+<script type="text/javascript" defer src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
 
 @endsection

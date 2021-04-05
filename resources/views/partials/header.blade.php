@@ -80,7 +80,7 @@
                 <a class="nav-link" href="{{ route('wheretobuy')}}">Where to Buy</a>
              </li>
              <li class="nav-item">
-                <a class="nav-link" href="{{ route('service_center')}}">Service</a>
+                <a class="nav-link" href="{{ route('support')}}">Service</a>
              </li>
              <li class="nav-item has-dropdown">
                 <input id="header_buy_online" type="checkbox" hidden="">

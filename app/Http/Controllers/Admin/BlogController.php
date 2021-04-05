@@ -20,9 +20,10 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'    =>  'required',
-            'published_at'     =>  'required',
-            'desc'     =>  'required',
+            'title'         =>  'required',
+            'published_at'  =>  'required',
+            'desc'          =>  'required',
+            'short_desc'    =>  'required',
             'image'         =>  'image|max:5000'
         ]);
         // $request->validate([
@@ -48,10 +49,11 @@ class BlogController extends Controller
         //     ->with('success','created successfully.');
 
         $request->validate([
-            'title'    =>  'required',
-            'published_at'     =>  'required',
-            'image'         =>  'required|image|max:5000',
-            'desc'         =>  'required'
+            'title'          =>  'required',
+            'published_at'   =>  'required',
+            'image'          =>  'required|image|max:5000',
+            'short_desc'     =>  'required',
+            'desc'           =>  'required',
         ]);
 
         $image = $request->file('image');
@@ -59,10 +61,11 @@ class BlogController extends Controller
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images/blog'), $new_name);
         $form_data = array(
-            'title'       =>   $request->title,
-            'published_at'        =>   $request->published_at,
-            'desc'        =>   $request->desc,
-            'image'            =>   $new_name
+            'title'           =>   $request->title,
+            'published_at'    =>   $request->published_at,
+            'desc'            =>   $request->desc,
+            'short_desc'      =>   $request->short_desc,
+            'image'           =>   $new_name
         );
 
         Blog::create($form_data);
@@ -84,9 +87,10 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'    =>  'required',
-            'published_at'     =>  'required',
-            'desc'     =>  'required',
+            'title'         =>  'required',
+            'published_at'  =>  'required',
+            'desc'          =>  'required',
+            'short_desc'    =>  'required',
             'image'         =>  'image|max:5000'
         ]);
         // $request->validate([
@@ -114,9 +118,10 @@ class BlogController extends Controller
         if($image != '')
         {
             $request->validate([
-                'title'    =>  'required',
-                'published_at'     =>  'required',
-                'desc'     =>  'required',
+                'title'         =>  'required',
+                'published_at'  =>  'required',
+                'desc'          =>  'required',
+                'short_desc'    =>  'required',
                 'image'         =>  'image|max:5000'
             ]);
 
@@ -126,17 +131,20 @@ class BlogController extends Controller
         else
         {
             $request->validate([
-                'title'    =>  'required',
-                'published_at'     =>  'required',
-                'desc'     =>  'required',
+                'title'         =>  'required',
+                'published_at'  =>  'required',
+                'desc'          =>  'required',
+                'short_desc'    =>  'required',
+
             ]);
         }
 
         $form_data = array(
-            'title'       =>   $request->title,
-            'published_at'        =>   $request->published_at,
-            'desc'        =>   $request->desc,
-            'image'            =>   $image_name
+            'title'             =>   $request->title,
+            'published_at'      =>   $request->published_at,
+            'desc'              =>   $request->desc,
+            'short_desc'        =>   $request->short_desc,
+            'image'             =>   $image_name
         );
 
         Blog::whereId($id)->update($form_data);

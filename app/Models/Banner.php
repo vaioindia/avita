@@ -10,5 +10,5 @@ class Banner extends Model
     protected $table = 'banners';
 
 
-    protected $fillable = ['title','image','id','date','seq','enabled','url'];
+    protected $fillable = ['title','web_image','mob_image','date','seq','status','url'];
 }

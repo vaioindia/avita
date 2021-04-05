@@ -55,32 +55,30 @@ Banner
                                     <input type="text" name="url" value="{{ $banner->url }}" class="form-control" placeholder="URL">
                                 </div>
                             </div>
-                            {{-- <div  class="col-lg-6">
-                                <div class="form-group">
-                                    <strong for="">Enabled</strong>
-                                    <input type="text" name="enabled" value="{{ $banner->enabled }}" class="form-control" placeholder="Enabled">
+                            <div  class="col-lg-6">
+                                <div class="from-group">
+                                    <strong>Web Image</strong>
+                                         <img src="{{ URL::to('/') }}/images/banner/{{ $banner->web_image }}" class="img-thumbnail" class="w-50 h-20" />
+                                    <input type="file" name="web_image" value="{{ $banner->web_image }}" class="form-control">
+                                    <strong>Web Image Again Select Size(1920 × 720 px)</strong>
                                 </div>
-                            </div> --}}
-                            <div class="col-lg-6">
-                                {{-- <div class="form-group">
-                                    <strong>Condition</strong>
-                                    <input type="" name="is_cond" class="form-control" placeholder="boolean">
-                                </div> --}}<br>
-                                    <div class="form-check form-group">
-                                        <input class="form-check-input" type="checkbox" value="{{ $banner->enabled }}" name="enabled" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            <strong>Enabled</strong>
-                                        </label>
-                                    </div>
                             </div>
                             <div  class="col-lg-6">
                                 <div class="from-group">
-                                    <strong>Image</strong>
-                                    <img src="{{ URL::to('/') }}/images/banner/{{ $banner->image }}" class="img-thumbnail" class="w-50 h-20" />
-                                    <!-- <img src="{{ url('/'.$banner->image) }}" class="img-thumbnail img-responsive"> -->
-                                    <input type="file" name="image" value="{{ $banner->image }}" class="form-control img-responsive">
-                                    <strong>Image Again Select</strong>
+                                    <strong>Mob Image</strong><br>
+                                        <img src="{{ URL::to('/') }}/images/banner/{{ $banner->mob_image }}" class="img-thumbnail" class="w-50 h-20" />
+                                    <input type="file" name="mob_image" value="{{ $banner->mob_image }}" class="form-control">
+                                    <strong>Mob Image Again Select Size(350 × 600 px)</strong>
                                 </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <strong for="">Status</strong>
+                                <select name="status" class="form-control">
+                                    <option value="{{$banner->status}}">{{$banner->status}}</option>
+                                    <option value="enabled">Enabled</option>
+                                    <option value="disabled">Disabled</option>
+                                </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>

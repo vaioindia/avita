@@ -7,31 +7,26 @@
 
 
 
+
         Route::get('/', function () {
             return view('welcome');
         });
 
-        // Route::get('/', function () {
-        //     return view('welcome');
-        // });
-
-        // Route::get('/admin/dashboard', function () {
-        //     return view('admin.dashboard');
-        // });
-
         Route::get('/','HomeController@index')->name('home');
-        // Route::get('/home','HomeController@index')->name('home');
-        // Route::get('admin/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('is_admin');
+
 
         Auth::routes();
 
         Route::get('/dashboard', [HomeController::class, 'userdashboard'])->name('dashboard');
-        // Route::get('admin/dashboard', 'HomeController@index')->name('admin.dashboard');
-        Route::get('admin/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('is_admin');
+
+        Route::prefix('admin')->group(function(){
+
+        Route::get('/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('is_admin');
+        Route::get('/dashboard', 'HomeController@adminDashboard')->name('admin.dashboard');
+
 
         // Banner
         // Route::resource('banners','BannerController');
-        Route::prefix('admin')->group(function(){
 
         Route::get('/banners', 'Admin\BannerController@index')->name('banners.index');
         Route::get('/banners/create','Admin\BannerController@create')->name('banners.create');
@@ -39,6 +34,17 @@
         Route::get('/banners/{id}/edit','Admin\BannerController@edit')->name('banners.edit');
         Route::get('/banners/{id}/delete','Admin\BannerController@destroy')->name('banners.destroy');
         Route::post('/banners/{id}/update','Admin\BannerController@update')->name('banners.update');
+        Route::POST('/banner','Admin\BannerController@status')->name('banners.status');
+
+        // Grid
+        // Route::resource('banners','BannerController');
+
+        Route::get('/grid', 'Admin\GridController@index')->name('grid.index');
+        Route::get('/grid/create','Admin\GridController@create')->name('grid.create');
+        Route::post('/grid/create','Admin\GridController@store')->name('grid.store');
+        Route::get('/grid/{id}/edit','Admin\GridController@edit')->name('grid.edit');
+        Route::get('/grid/{id}/delete','Admin\GridController@destroy')->name('grid.destroy');
+        Route::post('/grid/{id}/update','Admin\GridController@update')->name('grid.update');
 
         // Blog
         // Route::resource('blog','BlogController');
@@ -177,7 +183,7 @@
         Route::get('wheretobuy','HomeController@buy')->name('wheretobuy');
 
         // Service
-        Route::get('service_center','HomeController@support_center')->name('service_center');
+        Route::get('support','HomeController@service_center')->name('support');
 
         // Blog
         // Route::get('blogs','BlogsController@buy')->name('blogs');
