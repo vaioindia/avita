@@ -58,35 +58,7 @@
                 </div>
             @endforeach
 
-            {{-- <div class="col-12 col-sm-6 col-xl-3">
-                <div class="banner-block s-banner">
-                    <div class="banner-inner">
-                        <div class="banner-wrap">
-                            <a class="banner-bg" href="#" style="background-image: url('assets/images/campus.jpg')"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="banner-block s-banner">
-                    <div class="banner-inner">
-                        <div class="banner-wrap">
-                            <a class="banner-bg" href="#" style="background-image: url('assets/images/demo/promo-03-en.jpg')"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="banner-block s-banner">
-                    <div class="banner-inner">
-                        <div class="banner-wrap">
-                            <a class="banner-bg" href="#" style="background-image: url('assets/images/demo/promo-04-en.jpg')"></a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 
         </div>
  </section>
