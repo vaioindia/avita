@@ -5,23 +5,21 @@
 <section class="top-nav-padding homepage-banner">
     <div  id="home_banner" class="carousel slide" data-ride="carousel" data-interval="0" data-pause="">
        <div class="carousel-inner" role="listbox">
-        @foreach ($banners as $banner)
+        @foreach($banners as $banner)
           <div class="carousel-item {{$banner->status == 'enabled' ? 'active' : '' }}">
              <div class="responsive-block">
-                <a href="#">
-                   <div class="banner-block responsive-item">
-                      <div class="banner-bg hidden-sm-down banner-web-liber-v">
+                <div class="banner-block responsive-item">
+                    <div class="banner-bg hidden-sm-down banner-web-liber-v">
                         <a class="banner-bg" href="{{ $banner->url }}">
                             <img src="{{ URL::to('/') }}/images/banner/{{ $banner->web_image }}" class="w-100 h-100" src="{{ $banner->title }}"/>
                         </a>
-                      </div>
-                      <div class="banner-bg hidden-md-up banner-mob-liber-v">
+                    </div>
+                    <div class="banner-bg hidden-md-up banner-mob-liber-v">
                         <a class="banner-bg" href="{{ $banner->url }}">
                             <img src="{{ URL::to('/') }}/images/banner/{{ $banner->mob_image }}" class="w-100 h-100" src="{{ $banner->title }}"/>
                         </a>
-                      </div>
-                   </div>
-                </a>
+                    </div>
+                </div>
              </div>
           </div>
           @endforeach
@@ -33,9 +31,6 @@
           </ol>
        </div>
     </div>
-
-
-
  </section>
 <!-- Banner Section -->
 
@@ -57,17 +52,12 @@
                     </div>
                 </div>
             @endforeach
-
-
-
         </div>
  </section>
 <!-- card section -->
 
 <!-- newsletter subscription  -->
-
 @include('partials.newsletter')
-
 <!-- newsletter subscription  -->
 
 @endsection
@@ -79,7 +69,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.carousel').carousel({
-        interval: 4000
+        interval: 3000
         });
     });
 
